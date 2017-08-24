@@ -224,7 +224,7 @@
                     });
             },
             addCommodity() {
-                location.assign('/commodity/edit/0');
+                location.href = './commodity-edit.html';
             },
             query(page, size) {
                 this.commodityList = [
