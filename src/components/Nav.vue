@@ -27,27 +27,15 @@
                 currentLink: '',
                 menuList: [
                     {
-                        title: '供应商管理',
-                        subItems: [
-                            {title: '供应商管理', url: '/supplier/info/list'}
-                        ]
-                    },
-                    {
-                        title: '合同管理',
-                        subItems: [
-                            {title: '合同管理', url: '/contract/list/info'}
-                        ],
-                    },
-                    {
                         title: '商品主档',
                         subItems: [
                             {title: '商品主档', url: '/commodity/info/list'},
                         ],
                     },
                     {
-                        title: '供应商产品管理',
+                        title: 'eee',
                         subItems: [
-                            {title: '供应商产品管理', url: '/product/info/list'}
+                            {title: 'eee', url: '#'}
                         ],
                     }]
             };

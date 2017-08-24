@@ -251,8 +251,8 @@
                         specValue: '', //规格值
                         specUnit: '', //单位
                         commodityStatus: '', //商品状体
-                        commodityEan: [], //条码
-                        specVolume: [],
+                        commodityEan: [111111, 222222, 333333, 444444, 555555, 666666, 7, '+'], //条码
+                        specVolume: [1, 0, 3],
                     },
                 ]
             },
@@ -262,10 +262,16 @@
         className: '1000',
         subclassName: '10000',
         pictureUrl: [
+            'https://ss1.bdstatic.com/kvoZeXSm1A5BphGlnYG/skin/440.jpg?2',
+            'https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=1216290891,3700016454&fm=173&s=FA24C44F5F451B721E796C3A0300C04A&w=375&h=1383&img.JPEG',
+            'https://ss1.bdstatic.com/kvoZeXSm1A5BphGlnYG/skin/440.jpg?2',
+            'https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=1216290891,3700016454&fm=173&s=FA24C44F5F451B721E796C3A0300C04A&w=375&h=1383&img.JPEG',
+            'https://ss1.bdstatic.com/kvoZeXSm1A5BphGlnYG/skin/440.jpg?2',
+            'https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=1216290891,3700016454&fm=173&s=FA24C44F5F451B721E796C3A0300C04A&w=375&h=1383&img.JPEG',
         ],
 
         attributeVOList: [
-            {attrType: '1', attrValue: []}
+            {attrType: '1', attrValue: '10'}
         ],
     };
 
@@ -278,7 +284,29 @@
                 showImage: false,
                 COMMODITY_CODE: COMMODITY_CODE,
                 commodity: commodityData.spuId ? commodityData : defaultCommodityData,
-                operationsLog: operationsLog.length ? operationsLog : [],
+                operationsLog: operationsLog.length ? operationsLog : this.tableData,
+                tableData: [
+                    {
+                        operation: '新增',
+                        operator: '王二',
+                        time: '2017-08-16 20：33：43',
+                    },
+                    {
+                        operation: '新增',
+                        operator: '王二',
+                        time: '2017-08-16 20：33：43',
+                    },
+                    {
+                        operation: '新增',
+                        operator: '王二',
+                        time: '2017-08-16 20：33：43',
+                    },
+                    {
+                        operation: '新增',
+                        operator: '王二',
+                        time: '2017-08-16 20：33：43',
+                    },
+                ],
             };
         },
         components: {

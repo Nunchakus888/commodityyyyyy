@@ -90,7 +90,7 @@ module.exports = {
     },
     devServer: {
         contentBase: path.join(__dirname, './html'),
-        port: 6666,
+        port: 8999,
         host: '0.0.0.0',
         disableHostCheck: true,
 

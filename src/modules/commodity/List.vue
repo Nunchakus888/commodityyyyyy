@@ -127,7 +127,6 @@
                     <el-table-column label="商品部门" prop="commodityDept">
                         <template scope="scope"><span>{{ COMMODITY_CODE.commodityDept[scope.row.commodityDept] }}</span></template>
                     </el-table-column>
-                    <el-table-column label="subclass" prop="subclassName"></el-table-column>
                     <el-table-column label="保存条件" prop="termCondition">
                         <template scope="scope"><span>{{ COMMODITY_CODE.termCondition[scope.row.termCondition] }}</span></template>
                     </el-table-column>
@@ -142,10 +141,8 @@
                     </el-table-column>
                     <el-table-column label="操作">
                         <template scope="scope">
-                            <!--<el-button type="text"  @click="edit(scope.row.spuId)">编辑</el-button>-->
-                            <a :href="`/commodity/edit/${scope.row.skuId || ''}`">编辑</a>
-                            <a :href="`/commodity/view/${scope.row.skuId || ''}`">查看</a><br/>
-                            <a :href="`/product/create/${scope.row.skuId || ''}`">新建采购品</a>
+                            <a href="./commodity-edit.html">编辑</a>
+                            <a href="./commodity-view.html">查看</a><br/>
                         </template>
                     </el-table-column>
                 </el-table>
@@ -230,6 +227,71 @@
                 location.assign('/commodity/edit/0');
             },
             query(page, size) {
+                this.commodityList = [
+                    {
+                        skuId: '101000000002',
+                        commodityName: 'wa哈哈哈哈',
+                        commodityShort: '1',
+                        commodityDept: '1',
+                        termCondition: '1',
+                        specifications: '1',
+                        commodityStatus: '20',
+                    },
+                    {
+                        skuId: '101000000002',
+                        commodityName: 'wa哈哈哈哈',
+                        commodityShort: '1',
+                        commodityDept: '1',
+                        termCondition: '1',
+                        specifications: '1',
+                        commodityStatus: '20',
+                    },
+                    {
+                        skuId: '101000000002',
+                        commodityName: 'wa哈哈哈哈',
+                        commodityShort: '1',
+                        commodityDept: '1',
+                        termCondition: '1',
+                        specifications: '1',
+                        commodityStatus: '20',
+                    },
+                    {
+                        skuId: '101000000002',
+                        commodityName: 'wa哈哈哈哈',
+                        commodityShort: '1',
+                        commodityDept: '1',
+                        termCondition: '1',
+                        specifications: '1',
+                        commodityStatus: '20',
+                    },
+                    {
+                        skuId: '101000000002',
+                        commodityName: 'wa哈哈哈哈',
+                        commodityShort: '1',
+                        commodityDept: '1',
+                        termCondition: '1',
+                        specifications: '1',
+                        commodityStatus: '20',
+                    },
+                    {
+                        skuId: '101000000002',
+                        commodityName: 'wa哈哈哈哈',
+                        commodityShort: '1',
+                        commodityDept: '1',
+                        termCondition: '1',
+                        specifications: '1',
+                        commodityStatus: '20',
+                    },
+                    {
+                        skuId: '101000000002',
+                        commodityName: 'wa哈哈哈哈',
+                        commodityShort: '1',
+                        commodityDept: '1',
+                        termCondition: '1',
+                        specifications: '1',
+                        commodityStatus: '20',
+                    },
+                ]
                 const params = Object.assign(this.commodity, {pageNo: page, pageSize: size});
                 searchCommodity(params)
                     .then(r => {
@@ -248,7 +310,6 @@
                             confirmButtonText: '确定',
                             type: 'error'
                         });
-                        this.commodityList = [];
                     });
             },
             handleSizeChange(val) {
