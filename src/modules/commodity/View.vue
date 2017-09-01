@@ -287,7 +287,7 @@
         methods: {
             codeToLabel: codeToLabel,
             commodityList() {
-                location.assign('/commodity/info/list');
+                location.href = './commodity-list.html';
             },
             mmToY4M2D2TH2M2S2(millionSeconds) { //1503565755531-->2017-08-24 09:09:15
                 if (millionSeconds) {

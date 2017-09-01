@@ -736,7 +736,7 @@
                     });
             },
             commodityList() {
-                location.assign('/commodity/info/list');
+                location.href = './commodity-list.html';
             },
         },
     };

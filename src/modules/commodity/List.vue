@@ -233,7 +233,7 @@
                     });
             },
             addCommodity() {
-                location.assign('/commodity/edit/0');
+                location.href = './commodity-edit.html';
             },
             emptyFilterValue() {
                 Object.keys(this.commodity).forEach(i => {
