@@ -23822,7 +23822,7 @@ var defaultCommodityData = {
     methods: {
         codeToLabel: __WEBPACK_IMPORTED_MODULE_1__lib_utils__["a" /* codeToLabel */],
         commodityList: function commodityList() {
-            location.assign('/commodity/info/list');
+            location.href = './commodity-list.html';
         },
         mmToY4M2D2TH2M2S2: function mmToY4M2D2TH2M2S2(millionSeconds) {
             //1503565755531-->2017-08-24 09:09:15

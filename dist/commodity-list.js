@@ -23778,7 +23778,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
             });
         },
         addCommodity: function addCommodity() {
-            location.assign('/commodity/edit/0');
+            location.href = './commodity-edit.html';
         },
         emptyFilterValue: function emptyFilterValue() {
             var _this2 = this;
