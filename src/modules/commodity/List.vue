@@ -1,15 +1,14 @@
 <template>
     <container>
         <div id="app" slot="content">
-            <object-list>
+            <object-list class="commodity-main">
                 <h1 slot="header">商品管理</h1>
                 <div slot="search">
                     <el-form label-width="100px" class="demo-form-inline">
                         <el-row>
                             <el-col :span="6">
                                 <el-form-item label="商品编码">
-                                    <!--todo 12位校验-->
-                                    <el-input v-model="commodity.skuId"></el-input>
+                                    <el-input v-model="commodity.skuCode"></el-input>
                                 </el-form-item>
                             </el-col>
 
@@ -22,7 +21,7 @@
                             <el-col :span="6">
                                 <el-form-item label="商品状态">
                                     <el-select clearable v-model="commodity.commodityStatus">
-                                        <el-option v-for="(name, code) in COMMODITY_CODE.commodityStatus" :value="code" :label="name"></el-option>
+                                        <el-option v-for="item, index in COMMODITY_CODE.commodityStatus" :value="item.value" :label="item.label" :key="index"></el-option>
                                     </el-select>
                                 </el-form-item>
                             </el-col>
@@ -37,7 +36,9 @@
 
                             <el-col :span="6">
                                 <el-form-item label="保存条件">
-                                    <el-input v-model="commodity.termCondition"></el-input>
+                                    <el-select clearable v-model="commodity.termCondition">
+                                        <el-option v-for="(name, code) in COMMODITY_CODE.termCondition" :value="code" :label="name"></el-option>
+                                    </el-select>
                                 </el-form-item>
                             </el-col>
                         </el-row>
@@ -51,57 +52,55 @@
                                 </el-form-item>
                             </el-col>
 
-                            <el-col :span="6" v-if="commodity.commodityDept === 'PB'">
+                            <el-col :span="6">
                                 <el-form-item label="现制现售" prop="isFreshSell">
                                     <el-radio-group v-model="commodity.isFreshSell">
                                         <el-radio :label="code" v-for="(name, code) in COMMODITY_CODE.isFreshSell">{{ name }}</el-radio>
                                     </el-radio-group>
                                 </el-form-item>
                             </el-col>
-                            <div v-else>
-                                <el-col :span="6">
-                                    <el-form-item label="物料" prop="isMateriel">
-                                        <el-radio-group v-model="commodity.isMateriel">
-                                            <el-radio :label="code" v-for="(name, code) in COMMODITY_CODE.isMateriel">{{ name }}</el-radio>
-                                        </el-radio-group>
-                                    </el-form-item>
-                                </el-col>
-                                <el-col :span="6">
-                                    <el-form-item label="日配" prop="isDailyDist">
-                                        <el-radio-group v-model="commodity.isDailyDist">
-                                            <el-radio :label="code" v-for="(name, code) in COMMODITY_CODE.isDailyDist">{{ name }}</el-radio>
-                                        </el-radio-group>
-                                    </el-form-item>
-                                </el-col>
-                            </div>
+                            <!--<el-col :span="5">
+                                <el-form-item label="物料" prop="isMateriel">
+                                    <el-radio-group v-model="commodity.isMateriel">
+                                        <el-radio :label="code" v-for="(name, code) in COMMODITY_CODE.isMateriel">{{ name }}</el-radio>
+                                    </el-radio-group>
+                                </el-form-item>
+                            </el-col>-->
+                            <el-col :span="6">
+                                <el-form-item label="日配" prop="isDailyDist">
+                                    <el-radio-group v-model="commodity.isDailyDist">
+                                        <el-radio :label="code" v-for="(name, code) in COMMODITY_CODE.isDailyDist">{{ name }}</el-radio>
+                                    </el-radio-group>
+                                </el-form-item>
+                            </el-col>
                         </el-row>
 
                         <el-row>
                             <el-col :span="5">
                                 <el-form-item label="div">
-                                    <el-select clearable v-model="commodity.divName" @change="commodity.depName=''">
-                                        <el-option v-for="(name, code) in COMMODITY_CODE.divAndClass.div" :value="code" :label="name"></el-option>
+                                    <el-select v-model="commodity.divName" @change="linkageLevelData(2, commodity.divName);commodity.depName=''">
+                                        <el-option v-for="item in COMMODITY_CODE.divLevel.div" :value="item.classId" :label="item.className"></el-option>
                                     </el-select>
                                 </el-form-item>
                             </el-col>
                             <el-col :span="5">
                                 <el-form-item label="dep">
-                                    <el-select clearable v-model="commodity.depName" @change="commodity.className=''">
-                                        <el-option v-for="(name, code) in COMMODITY_CODE.divAndClass[commodity.divName]" :value="code" :label="name"></el-option>
+                                    <el-select v-model="commodity.depName" @change="linkageLevelData(3, commodity.depName);commodity.className=''">
+                                        <el-option v-for="item in COMMODITY_CODE.divLevel.dep" :value="item.classId" :label="item.className"></el-option>
                                     </el-select>
                                 </el-form-item>
                             </el-col>
                             <el-col :span="5">
                                 <el-form-item label="class">
-                                    <el-select clearable v-model="commodity.className" @change="commodity.subclassName=''">
-                                        <el-option v-for="(name, code) in COMMODITY_CODE.divAndClass[commodity.depName]" :value="code" :label="name"></el-option>
+                                    <el-select v-model="commodity.className" @change="linkageLevelData(4, commodity.className);commodity.subclassName=''">
+                                        <el-option v-for="item in COMMODITY_CODE.divLevel.class" :value="item.classId" :label="item.className"></el-option>
                                     </el-select>
                                 </el-form-item>
                             </el-col>
                             <el-col :span="5">
                                 <el-form-item label="subclass">
-                                    <el-select clearable v-model="commodity.subclassName">
-                                        <el-option v-for="(name, code) in COMMODITY_CODE.divAndClass[commodity.className]" :value="code" :label="name"></el-option>
+                                    <el-select v-model="commodity.subclassName">
+                                        <el-option v-for="item in COMMODITY_CODE.divLevel.subclass" :value="item.classId" :label="item.className"></el-option>
                                     </el-select>
                                 </el-form-item>
                             </el-col>
@@ -110,52 +109,59 @@
                     </el-form>
 
                     <el-row type="flex" justify="center">
-                        <el-col :span="3">
+                        <el-col :span="4">
                             <el-button class="submit-btn" type="primary" @click="addCommodity">新建商品</el-button>
                         </el-col>
-                        <el-col :span="3">
-                            <el-button class="submit-btn" type="primary" @click="query(1, size)">查询</el-button>
+
+                        <el-col :span="4">
+                            <el-button class="submit-btn" type="primary" @click="query(currentPage, size)">查询</el-button>
+                        </el-col>
+
+                        <el-col :span="4">
+                            <el-button class="submit-btn" type="primary" @click="emptyFilterValue()">清空条件查询</el-button>
                         </el-col>
                     </el-row>
                 </div>
 
-                <el-table slot="table" :data="commodityList" stripe border>
+                <el-table class="commodity-table" slot="table" :data="commodityList" stripe border>
                     <el-table-column type="index" prop="index" width="" label="序号"></el-table-column>
-                    <el-table-column label="商品编码" prop="skuId"></el-table-column>
+                    <el-table-column label="商品编码" prop="skuCode"></el-table-column>
                     <el-table-column label="商品名称" prop="commodityName"></el-table-column>
                     <el-table-column label="商品简称" prop="commodityShort"></el-table-column>
                     <el-table-column label="商品部门" prop="commodityDept">
                         <template scope="scope"><span>{{ COMMODITY_CODE.commodityDept[scope.row.commodityDept] }}</span></template>
                     </el-table-column>
+                    <!--<el-table-column label="subclass" prop="subclassName"></el-table-column>-->
                     <el-table-column label="保存条件" prop="termCondition">
                         <template scope="scope"><span>{{ COMMODITY_CODE.termCondition[scope.row.termCondition] }}</span></template>
                     </el-table-column>
                     <el-table-column label="规格" prop="specifications"></el-table-column>
                     <el-table-column label="商品状态" prop="commodityStatus">
                         <template scope="scope">
-                            <el-select @change="changeStatus(scope.row.skuId, scope.row.commodityStatus)" v-model="scope.row.commodityStatus">
-                                <el-option v-for="(name, code) in COMMODITY_CODE.commodityStatus" :value="code" :label="name"></el-option>
-                            </el-select>
-                            <!--<span>{{ COMMODITY_CODE.commodityStatus[scope.row.commodityStatus] }}</span>-->
+                            <select @change="changeStatus(scope.row.skuCode, scope.row.commodityStatus)" v-model="scope.row.commodityStatus">
+                                <option v-for="item, index in COMMODITY_CODE.commodityStatus" :value="item.value" :label="item.label" :key="index"></option>
+                            </select>
                         </template>
                     </el-table-column>
                     <el-table-column label="操作">
                         <template scope="scope">
-                            <a href="./commodity-edit.html">编辑</a>
-                            <a href="./commodity-view.html">查看</a><br/>
+                            <!--<el-button type="text"  @click="edit(scope.row.spuId)">编辑</el-button>-->
+                            <a :href="`/commodity/edit/${scope.row.skuCode || ''}`">编辑</a>
+                            <a :href="`/commodity/view/${scope.row.skuCode || ''}`">查看</a><br/>
+                            <a :href="`/product/create/${scope.row.skuId || ''}`">新建采购品</a>
                         </template>
                     </el-table-column>
                 </el-table>
 
                 <el-pagination
-                    slot="pager"
-                    @size-change="handleSizeChange"
-                    @current-change="handleCurrentChange"
-                    :current-page="1"
-                    :pageCount="pageTotal"
-                    :page-sizes="[20, 50, 100]"
-                    :page-size="size"
-                    layout="prev, pager, next, sizes"
+                        slot="pager"
+                        @size-change="handleSizeChange"
+                        @current-change="handleCurrentChange"
+                        :current-page="1"
+                        :pageCount="totalPage"
+                        :page-sizes="[20, 50, 100]"
+                        :page-size="size"
+                        layout="prev, pager, next, sizes"
                 >
                 </el-pagination>
             </object-list>
@@ -167,6 +173,7 @@
     import Container from '@components/Container';
     import ObjectList from '@components/ObjectList';
     import { COMMODITY_CODE } from '../../lib/constants';
+    import { linkageLevelData } from '../../lib/utils';
 
     export default {
         components: {
@@ -179,9 +186,9 @@
                 currentPage: 1,
                 size: Number(localStorage.getItem('size')) || 50,
                 COMMODITY_CODE: COMMODITY_CODE,
-                pageTotal: 0,
+                totalPage: 0,
                 commodity: {
-                    skuId: '',
+                    skuCode: '',
                     commodityDept: '',
                     commodityStatus: '',
 
@@ -202,115 +209,58 @@
         },
         mounted() {
             this.query(this.currentPage, this.size);
+            this.linkageLevelData(1, 1);
         },
         methods: {
-            changeStatus(skuId, status) {
-                changeCommodityStatus(skuId, status)
-                    .then(r => {
-                        if (r.code === 200) {
-                            location.reload();
-                        } else {
-                            this.$alert(r.msg || '修改失败!', '提示', {
-                                confirmButtonText: '确定',
-                                type: 'error'
-                            });
-                        }
-                    })
-                    .catch(err => {
-                        this.$alert(err.msg || '修改失败!', '提示', {
+            linkageLevelData: linkageLevelData,
+            changeStatus(skuCode, status) {
+                changeCommodityStatus(skuCode, status)
+                .then(r => {
+                    if (r.status !== 200) {
+                        this.$alert(r.msg || '修改失败!', '提示', {
                             confirmButtonText: '确定',
-                            type: 'error'
+                            type: 'error',
                         });
+                        this.query(this.currentPage, this.size);
+                    }
+                })
+                .catch(err => {
+                    this.$alert(err.msg || '修改失败!', '提示', {
+                        confirmButtonText: '确定',
+                        type: 'error',
                     });
+                    this.query(this.currentPage, this.size);
+                });
             },
             addCommodity() {
-                location.href = './commodity-edit.html';
+                location.assign('/commodity/edit/0');
+            },
+            emptyFilterValue() {
+                Object.keys(this.commodity).forEach(i => {
+                    this.commodity[i] = '';
+                });
             },
             query(page, size) {
-                this.commodityList = [
-                    {
-                        skuId: '101000000002',
-                        commodityName: 'wa哈哈哈哈',
-                        commodityShort: '1',
-                        commodityDept: '1',
-                        termCondition: '1',
-                        specifications: '1',
-                        commodityStatus: '20',
-                    },
-                    {
-                        skuId: '101000000002',
-                        commodityName: 'wa哈哈哈哈',
-                        commodityShort: '1',
-                        commodityDept: '1',
-                        termCondition: '1',
-                        specifications: '1',
-                        commodityStatus: '20',
-                    },
-                    {
-                        skuId: '101000000002',
-                        commodityName: 'wa哈哈哈哈',
-                        commodityShort: '1',
-                        commodityDept: '1',
-                        termCondition: '1',
-                        specifications: '1',
-                        commodityStatus: '20',
-                    },
-                    {
-                        skuId: '101000000002',
-                        commodityName: 'wa哈哈哈哈',
-                        commodityShort: '1',
-                        commodityDept: '1',
-                        termCondition: '1',
-                        specifications: '1',
-                        commodityStatus: '20',
-                    },
-                    {
-                        skuId: '101000000002',
-                        commodityName: 'wa哈哈哈哈',
-                        commodityShort: '1',
-                        commodityDept: '1',
-                        termCondition: '1',
-                        specifications: '1',
-                        commodityStatus: '20',
-                    },
-                    {
-                        skuId: '101000000002',
-                        commodityName: 'wa哈哈哈哈',
-                        commodityShort: '1',
-                        commodityDept: '1',
-                        termCondition: '1',
-                        specifications: '1',
-                        commodityStatus: '20',
-                    },
-                    {
-                        skuId: '101000000002',
-                        commodityName: 'wa哈哈哈哈',
-                        commodityShort: '1',
-                        commodityDept: '1',
-                        termCondition: '1',
-                        specifications: '1',
-                        commodityStatus: '20',
-                    },
-                ]
                 const params = Object.assign(this.commodity, {pageNo: page, pageSize: size});
                 searchCommodity(params)
-                    .then(r => {
-                        if (r.code === 200) {
-                            this.commodityList = r.data;
-                            this.pageTotal = r.pageTotal;
-                        } else {
-                            this.$alert(r.msg || '请求失败!', '提示', {
-                                confirmButtonText: '确定',
-                                type: 'error'
-                            });
-                        }
-                    })
-                    .catch(err => {
-                        this.$alert(err.msg || '请求失败!', '提示', {
+                .then(r => {
+                    if (r.status === 200) {
+                        this.commodityList = r.data;
+                        this.totalPage = r.totalPage;
+                    } else {
+                        this.$alert(r.msg || '请求失败!', '提示', {
                             confirmButtonText: '确定',
                             type: 'error'
                         });
+                    }
+                })
+                .catch(err => {
+                    this.$alert(err.msg || '请求失败!', '提示', {
+                        confirmButtonText: '确定',
+                        type: 'error'
                     });
+                    this.commodityList = [];
+                });
             },
             handleSizeChange(val) {
                 this.size = val;
@@ -328,6 +278,11 @@
 <style scoped lang="less">
     @import '../../less/button.less';
 
+    .commodity-table,
+    .commodity-main {
+        min-width: 940px;
+    }
+
     table.commodity-list {
         width: 100%;
         border: 1px solid #999;
@@ -340,6 +295,7 @@
     }
 
     .submit-btn {
+        width: 120px;
         font-weight: 600;
         margin-bottom: 15px;
     }
