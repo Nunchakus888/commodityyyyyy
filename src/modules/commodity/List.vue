@@ -215,22 +215,22 @@
             linkageLevelData: linkageLevelData,
             changeStatus(skuCode, status) {
                 changeCommodityStatus(skuCode, status)
-                .then(r => {
-                    if (r.status !== 200) {
-                        this.$alert(r.msg || '修改失败!', '提示', {
+                    .then(r => {
+                        if (r.status !== 200) {
+                            this.$alert(r.msg || '修改失败!', '提示', {
+                                confirmButtonText: '确定',
+                                type: 'error',
+                            });
+                            this.query(this.currentPage, this.size);
+                        }
+                    })
+                    .catch(err => {
+                        this.$alert(err.msg || '修改失败!', '提示', {
                             confirmButtonText: '确定',
                             type: 'error',
                         });
                         this.query(this.currentPage, this.size);
-                    }
-                })
-                .catch(err => {
-                    this.$alert(err.msg || '修改失败!', '提示', {
-                        confirmButtonText: '确定',
-                        type: 'error',
                     });
-                    this.query(this.currentPage, this.size);
-                });
             },
             addCommodity() {
                 location.assign('/commodity/edit/0');
@@ -243,24 +243,24 @@
             query(page, size) {
                 const params = Object.assign(this.commodity, {pageNo: page, pageSize: size});
                 searchCommodity(params)
-                .then(r => {
-                    if (r.status === 200) {
-                        this.commodityList = r.data;
-                        this.totalPage = r.totalPage;
-                    } else {
-                        this.$alert(r.msg || '请求失败!', '提示', {
+                    .then(r => {
+                        if (r.status === 200) {
+                            this.commodityList = r.data;
+                            this.totalPage = r.totalPage;
+                        } else {
+                            this.$alert(r.msg || '请求失败!', '提示', {
+                                confirmButtonText: '确定',
+                                type: 'error'
+                            });
+                        }
+                    })
+                    .catch(err => {
+                        this.$alert(err.msg || '请求失败!', '提示', {
                             confirmButtonText: '确定',
                             type: 'error'
                         });
-                    }
-                })
-                .catch(err => {
-                    this.$alert(err.msg || '请求失败!', '提示', {
-                        confirmButtonText: '确定',
-                        type: 'error'
+                        this.commodityList = [];
                     });
-                    this.commodityList = [];
-                });
             },
             handleSizeChange(val) {
                 this.size = val;

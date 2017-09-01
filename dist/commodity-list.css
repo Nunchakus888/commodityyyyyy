@@ -58,6 +58,10 @@ a {
 }
 /** colors **/
 /** buttons **/
+.commodity-table[data-v-ee8ae2d0],
+.commodity-main[data-v-ee8ae2d0] {
+  min-width: 940px;
+}
 table.commodity-list[data-v-ee8ae2d0] {
   width: 100%;
   border: 1px solid #999;
@@ -69,6 +73,7 @@ table.commodity-list td[data-v-ee8ae2d0] {
   padding: 2px 5px;
 }
 .submit-btn[data-v-ee8ae2d0] {
+  width: 120px;
   font-weight: 600;
   margin-bottom: 15px;
 }

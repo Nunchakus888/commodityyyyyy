@@ -219,7 +219,7 @@ function deepMerge(target, source) {
   }
   return target;
 }
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(128)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(132)))
 
 /***/ }),
 /* 1 */,
@@ -234,11 +234,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = {
   required: __webpack_require__(20),
-  whitespace: __webpack_require__(39),
-  type: __webpack_require__(38),
-  range: __webpack_require__(37),
-  "enum": __webpack_require__(35),
-  pattern: __webpack_require__(36)
+  whitespace: __webpack_require__(41),
+  type: __webpack_require__(40),
+  range: __webpack_require__(39),
+  "enum": __webpack_require__(37),
+  pattern: __webpack_require__(38)
 };
 module.exports = exports['default'];
 
@@ -558,7 +558,7 @@ var _merge = __webpack_require__(11);
 
 var _merge2 = _interopRequireDefault(_merge);
 
-var _popupManager = __webpack_require__(84);
+var _popupManager = __webpack_require__(86);
 
 var _popupManager2 = _interopRequireDefault(_popupManager);
 
@@ -2349,7 +2349,7 @@ module.exports =
 exports.__esModule = true;
 exports.i18n = exports.use = exports.t = undefined;
 
-var _zhCN = __webpack_require__(63);
+var _zhCN = __webpack_require__(65);
 
 var _zhCN2 = _interopRequireDefault(_zhCN);
 
@@ -2357,11 +2357,11 @@ var _vue = __webpack_require__(1);
 
 var _vue2 = _interopRequireDefault(_vue);
 
-var _deepmerge = __webpack_require__(54);
+var _deepmerge = __webpack_require__(56);
 
 var _deepmerge2 = _interopRequireDefault(_deepmerge);
 
-var _format = __webpack_require__(62);
+var _format = __webpack_require__(64);
 
 var _format2 = _interopRequireDefault(_format);
 
@@ -2671,7 +2671,7 @@ function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
 }
 
-var PopperJS = _vue2.default.prototype.$isServer ? function () {} : __webpack_require__(83);
+var PopperJS = _vue2.default.prototype.$isServer ? function () {} : __webpack_require__(85);
 var stop = function stop(e) {
   return e.stopPropagation();
 };
@@ -4000,7 +4000,7 @@ module.exports =
 	/***/15:
 	/***/function _(module, exports) {
 
-		module.exports = __webpack_require__(76);
+		module.exports = __webpack_require__(78);
 
 		/***/
 	},
@@ -4016,7 +4016,7 @@ module.exports =
 	/***/60:
 	/***/function _(module, exports) {
 
-		module.exports = __webpack_require__(85);
+		module.exports = __webpack_require__(87);
 
 		/***/
 	},
@@ -5637,130 +5637,234 @@ module.exports = function (delay, noTrailing, callback, debounceMode) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Users_neo_workspace_commodityyyyyy_ele_theme_owo_message_css__ = __webpack_require__(104);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return COMMODITY_CODE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return REGEXP; });
+var COMMODITY_CODE = {
+    commodityDept: {
+        1: 'PB',
+        2: 'NB',
+        3: 'EP'
+    },
+    isFreshSell: { //是否现制现售
+        1: '是',
+        0: '否'
+    },
+    isMateriel: { //是否物料
+        1: '是',
+        0: '否'
+    },
+    isDailyDist: { //是否日配
+        1: '是',
+        0: '否'
+    },
+    isPolymer: { //是否聚合品
+        1: '是',
+        0: '否'
+    },
+    isImport: { //是否进口
+        1: '是',
+        0: '否'
+    },
+    isSpecialSell: { //是否专卖
+        10: '非专卖',
+        20: '烟草专卖'
+    },
+    termCondition: { //储存条件
+        1: '常温',
+        2: '冷藏',
+        3: '冷冻'
+    },
+    taxRate: { //进项税率
+        '0.00': '0%',
+        '11.00': '11%',
+        '13.00': '13%',
+        '17.00': '17%'
+    },
+    specType: { //规格类型
+        1: '杯型',
+        2: 'g重',
+        3: '口味',
+        4: '容量',
+        5: '个数'
+    },
+    specUnit: { //规格类型
+        1: '袋',
+        2: '盒',
+        3: '听',
+        4: '罐',
+        5: '个',
+        6: '瓶',
+        7: '件',
+        8: '杯',
+        9: '碗'
+    },
+    commodityStatus: [//商品状态
+    { value: '40', label: '售卖中' }, { value: '30', label: '冻结' }, { value: '20', label: '紧急下架' }, { value: '10', label: '下架' }],
+    divLevel: {
+        div: [],
+        dep: [],
+        class: [],
+        subclass: []
+    },
+    attributeVOList: {
+        attrType: {
+            1: '冰度',
+            2: '糖度'
+        },
+        '冰度': {
+            10: '加冰',
+            12: '去冰'
+        },
+        '糖度': {
+            20: '全糖',
+            21: '半糖'
+        }
+    }
+};
+var REGEXP = {
+    zhCn_en_num: /^[a-z0-9A-Z\u4e00-\u9fa5]+$/, //中英文数字
+    en_num: /^[a-z0-9A-Z]{1,13}$/, //数字字母长度1-13
+    en_num_code: /^[a-z0-9A-Z]{13}$|^[a-z0-9A-Z]{6}$/, //数字字母长度6/13位
+    num_code: /^[0-9]{13}$|^[0-9]{6}$/, //数字长度6/13位
+    num_6_up: /^[0-9]{5}\d+$/, //6+位数字.
+    num_6_to_13: /^[0-9]{6,13}$/, //6-13位数字.
+    int_code: /^\d+$/, //整数
+    zh_en_num_len: /^[\u4e00-\u9fa5]{1,7}$|^[\dA-Za-z_]{1,14}$/
+};
+/* unused harmony default export */ var _unused_webpack_default_export = ({
+    REGEXP: REGEXP,
+    COMMODITY_CODE: COMMODITY_CODE
+});
+
+/***/ }),
+/* 28 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Users_neo_workspace_commodityyyyyy_ele_theme_owo_message_css__ = __webpack_require__(108);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Users_neo_workspace_commodityyyyyy_ele_theme_owo_message_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Users_neo_workspace_commodityyyyyy_ele_theme_owo_message_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_element_ui_lib_message__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_element_ui_lib_message__ = __webpack_require__(70);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_element_ui_lib_message___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_element_ui_lib_message__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Users_neo_workspace_commodityyyyyy_ele_theme_owo_notification_css__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Users_neo_workspace_commodityyyyyy_ele_theme_owo_notification_css__ = __webpack_require__(109);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Users_neo_workspace_commodityyyyyy_ele_theme_owo_notification_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__Users_neo_workspace_commodityyyyyy_ele_theme_owo_notification_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_element_ui_lib_notification__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_element_ui_lib_notification__ = __webpack_require__(71);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_element_ui_lib_notification___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_element_ui_lib_notification__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Users_neo_workspace_commodityyyyyy_ele_theme_owo_message_box_css__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Users_neo_workspace_commodityyyyyy_ele_theme_owo_message_box_css__ = __webpack_require__(107);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Users_neo_workspace_commodityyyyyy_ele_theme_owo_message_box_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__Users_neo_workspace_commodityyyyyy_ele_theme_owo_message_box_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_element_ui_lib_message_box__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_element_ui_lib_message_box__ = __webpack_require__(69);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_element_ui_lib_message_box___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_element_ui_lib_message_box__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Users_neo_workspace_commodityyyyyy_ele_theme_owo_col_css__ = __webpack_require__(93);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Users_neo_workspace_commodityyyyyy_ele_theme_owo_col_css__ = __webpack_require__(97);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Users_neo_workspace_commodityyyyyy_ele_theme_owo_col_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__Users_neo_workspace_commodityyyyyy_ele_theme_owo_col_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_element_ui_lib_col__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_element_ui_lib_col__ = __webpack_require__(59);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_element_ui_lib_col___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_element_ui_lib_col__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__Users_neo_workspace_commodityyyyyy_ele_theme_owo_row_css__ = __webpack_require__(112);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__Users_neo_workspace_commodityyyyyy_ele_theme_owo_row_css__ = __webpack_require__(116);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__Users_neo_workspace_commodityyyyyy_ele_theme_owo_row_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__Users_neo_workspace_commodityyyyyy_ele_theme_owo_row_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_element_ui_lib_row__ = __webpack_require__(75);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_element_ui_lib_row__ = __webpack_require__(77);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_element_ui_lib_row___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_element_ui_lib_row__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__Users_neo_workspace_commodityyyyyy_ele_theme_owo_icon_css__ = __webpack_require__(96);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__Users_neo_workspace_commodityyyyyy_ele_theme_owo_icon_css__ = __webpack_require__(100);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__Users_neo_workspace_commodityyyyyy_ele_theme_owo_icon_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__Users_neo_workspace_commodityyyyyy_ele_theme_owo_icon_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_element_ui_lib_icon__ = __webpack_require__(60);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_element_ui_lib_icon__ = __webpack_require__(62);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_element_ui_lib_icon___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11_element_ui_lib_icon__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__Users_neo_workspace_commodityyyyyy_ele_theme_owo_tag_css__ = __webpack_require__(118);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__Users_neo_workspace_commodityyyyyy_ele_theme_owo_tag_css__ = __webpack_require__(122);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__Users_neo_workspace_commodityyyyyy_ele_theme_owo_tag_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__Users_neo_workspace_commodityyyyyy_ele_theme_owo_tag_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_element_ui_lib_tag__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_element_ui_lib_tag___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13_element_ui_lib_tag__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__Users_neo_workspace_commodityyyyyy_ele_theme_owo_form_item_css__ = __webpack_require__(94);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__Users_neo_workspace_commodityyyyyy_ele_theme_owo_form_item_css__ = __webpack_require__(98);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__Users_neo_workspace_commodityyyyyy_ele_theme_owo_form_item_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__Users_neo_workspace_commodityyyyyy_ele_theme_owo_form_item_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_element_ui_lib_form_item__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_element_ui_lib_form_item__ = __webpack_require__(60);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_element_ui_lib_form_item___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15_element_ui_lib_form_item__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__Users_neo_workspace_commodityyyyyy_ele_theme_owo_form_css__ = __webpack_require__(95);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__Users_neo_workspace_commodityyyyyy_ele_theme_owo_form_css__ = __webpack_require__(99);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__Users_neo_workspace_commodityyyyyy_ele_theme_owo_form_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__Users_neo_workspace_commodityyyyyy_ele_theme_owo_form_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_element_ui_lib_form__ = __webpack_require__(59);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_element_ui_lib_form__ = __webpack_require__(61);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_element_ui_lib_form___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17_element_ui_lib_form__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__Users_neo_workspace_commodityyyyyy_ele_theme_owo_table_column_css__ = __webpack_require__(116);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__Users_neo_workspace_commodityyyyyy_ele_theme_owo_table_column_css__ = __webpack_require__(120);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__Users_neo_workspace_commodityyyyyy_ele_theme_owo_table_column_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18__Users_neo_workspace_commodityyyyyy_ele_theme_owo_table_column_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19_element_ui_lib_table_column__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19_element_ui_lib_table_column__ = __webpack_require__(81);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19_element_ui_lib_table_column___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_19_element_ui_lib_table_column__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__Users_neo_workspace_commodityyyyyy_ele_theme_owo_table_css__ = __webpack_require__(117);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__Users_neo_workspace_commodityyyyyy_ele_theme_owo_table_css__ = __webpack_require__(121);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__Users_neo_workspace_commodityyyyyy_ele_theme_owo_table_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_20__Users_neo_workspace_commodityyyyyy_ele_theme_owo_table_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21_element_ui_lib_table__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21_element_ui_lib_table__ = __webpack_require__(82);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21_element_ui_lib_table___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_21_element_ui_lib_table__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__Users_neo_workspace_commodityyyyyy_ele_theme_owo_button_group_css__ = __webpack_require__(88);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__Users_neo_workspace_commodityyyyyy_ele_theme_owo_button_group_css__ = __webpack_require__(92);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__Users_neo_workspace_commodityyyyyy_ele_theme_owo_button_group_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_22__Users_neo_workspace_commodityyyyyy_ele_theme_owo_button_group_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23_element_ui_lib_button_group__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23_element_ui_lib_button_group__ = __webpack_require__(57);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23_element_ui_lib_button_group___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_23_element_ui_lib_button_group__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__Users_neo_workspace_commodityyyyyy_ele_theme_owo_button_css__ = __webpack_require__(89);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__Users_neo_workspace_commodityyyyyy_ele_theme_owo_button_css__ = __webpack_require__(93);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__Users_neo_workspace_commodityyyyyy_ele_theme_owo_button_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_24__Users_neo_workspace_commodityyyyyy_ele_theme_owo_button_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25_element_ui_lib_button__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25_element_ui_lib_button___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_25_element_ui_lib_button__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__Users_neo_workspace_commodityyyyyy_ele_theme_owo_option_group_css__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__Users_neo_workspace_commodityyyyyy_ele_theme_owo_option_group_css__ = __webpack_require__(110);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__Users_neo_workspace_commodityyyyyy_ele_theme_owo_option_group_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_26__Users_neo_workspace_commodityyyyyy_ele_theme_owo_option_group_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27_element_ui_lib_option_group__ = __webpack_require__(70);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27_element_ui_lib_option_group__ = __webpack_require__(72);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27_element_ui_lib_option_group___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_27_element_ui_lib_option_group__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__Users_neo_workspace_commodityyyyyy_ele_theme_owo_option_css__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__Users_neo_workspace_commodityyyyyy_ele_theme_owo_option_css__ = __webpack_require__(111);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__Users_neo_workspace_commodityyyyyy_ele_theme_owo_option_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_28__Users_neo_workspace_commodityyyyyy_ele_theme_owo_option_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_29_element_ui_lib_option__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_29_element_ui_lib_option___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_29_element_ui_lib_option__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__Users_neo_workspace_commodityyyyyy_ele_theme_owo_select_css__ = __webpack_require__(113);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__Users_neo_workspace_commodityyyyyy_ele_theme_owo_select_css__ = __webpack_require__(117);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__Users_neo_workspace_commodityyyyyy_ele_theme_owo_select_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_30__Users_neo_workspace_commodityyyyyy_ele_theme_owo_select_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_31_element_ui_lib_select__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_31_element_ui_lib_select___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_31_element_ui_lib_select__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__Users_neo_workspace_commodityyyyyy_ele_theme_owo_switch_css__ = __webpack_require__(115);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__Users_neo_workspace_commodityyyyyy_ele_theme_owo_switch_css__ = __webpack_require__(119);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__Users_neo_workspace_commodityyyyyy_ele_theme_owo_switch_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_32__Users_neo_workspace_commodityyyyyy_ele_theme_owo_switch_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33_element_ui_lib_switch__ = __webpack_require__(78);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33_element_ui_lib_switch__ = __webpack_require__(80);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_33_element_ui_lib_switch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_33_element_ui_lib_switch__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__Users_neo_workspace_commodityyyyyy_ele_theme_owo_checkbox_button_css__ = __webpack_require__(90);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__Users_neo_workspace_commodityyyyyy_ele_theme_owo_checkbox_button_css__ = __webpack_require__(94);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__Users_neo_workspace_commodityyyyyy_ele_theme_owo_checkbox_button_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_34__Users_neo_workspace_commodityyyyyy_ele_theme_owo_checkbox_button_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35_element_ui_lib_checkbox_button__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35_element_ui_lib_checkbox_button__ = __webpack_require__(58);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_35_element_ui_lib_checkbox_button___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_35_element_ui_lib_checkbox_button__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__Users_neo_workspace_commodityyyyyy_ele_theme_owo_checkbox_group_css__ = __webpack_require__(91);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__Users_neo_workspace_commodityyyyyy_ele_theme_owo_checkbox_group_css__ = __webpack_require__(95);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__Users_neo_workspace_commodityyyyyy_ele_theme_owo_checkbox_group_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_36__Users_neo_workspace_commodityyyyyy_ele_theme_owo_checkbox_group_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_37_element_ui_lib_checkbox_group__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_37_element_ui_lib_checkbox_group___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_37_element_ui_lib_checkbox_group__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__Users_neo_workspace_commodityyyyyy_ele_theme_owo_checkbox_css__ = __webpack_require__(92);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__Users_neo_workspace_commodityyyyyy_ele_theme_owo_checkbox_css__ = __webpack_require__(96);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__Users_neo_workspace_commodityyyyyy_ele_theme_owo_checkbox_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_38__Users_neo_workspace_commodityyyyyy_ele_theme_owo_checkbox_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_39_element_ui_lib_checkbox__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_39_element_ui_lib_checkbox___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_39_element_ui_lib_checkbox__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__Users_neo_workspace_commodityyyyyy_ele_theme_owo_radio_button_css__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__Users_neo_workspace_commodityyyyyy_ele_theme_owo_radio_button_css__ = __webpack_require__(113);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__Users_neo_workspace_commodityyyyyy_ele_theme_owo_radio_button_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_40__Users_neo_workspace_commodityyyyyy_ele_theme_owo_radio_button_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41_element_ui_lib_radio_button__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41_element_ui_lib_radio_button__ = __webpack_require__(74);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_41_element_ui_lib_radio_button___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_41_element_ui_lib_radio_button__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__Users_neo_workspace_commodityyyyyy_ele_theme_owo_radio_group_css__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__Users_neo_workspace_commodityyyyyy_ele_theme_owo_radio_group_css__ = __webpack_require__(114);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__Users_neo_workspace_commodityyyyyy_ele_theme_owo_radio_group_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_42__Users_neo_workspace_commodityyyyyy_ele_theme_owo_radio_group_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43_element_ui_lib_radio_group__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43_element_ui_lib_radio_group__ = __webpack_require__(75);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_43_element_ui_lib_radio_group___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_43_element_ui_lib_radio_group__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__Users_neo_workspace_commodityyyyyy_ele_theme_owo_radio_css__ = __webpack_require__(111);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__Users_neo_workspace_commodityyyyyy_ele_theme_owo_radio_css__ = __webpack_require__(115);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__Users_neo_workspace_commodityyyyyy_ele_theme_owo_radio_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_44__Users_neo_workspace_commodityyyyyy_ele_theme_owo_radio_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45_element_ui_lib_radio__ = __webpack_require__(74);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45_element_ui_lib_radio__ = __webpack_require__(76);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_45_element_ui_lib_radio___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_45_element_ui_lib_radio__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__Users_neo_workspace_commodityyyyyy_ele_theme_owo_input_number_css__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__Users_neo_workspace_commodityyyyyy_ele_theme_owo_input_number_css__ = __webpack_require__(102);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__Users_neo_workspace_commodityyyyyy_ele_theme_owo_input_number_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_46__Users_neo_workspace_commodityyyyyy_ele_theme_owo_input_number_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47_element_ui_lib_input_number__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47_element_ui_lib_input_number__ = __webpack_require__(63);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_47_element_ui_lib_input_number___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_47_element_ui_lib_input_number__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__Users_neo_workspace_commodityyyyyy_ele_theme_owo_input_css__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__Users_neo_workspace_commodityyyyyy_ele_theme_owo_input_css__ = __webpack_require__(103);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__Users_neo_workspace_commodityyyyyy_ele_theme_owo_input_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_48__Users_neo_workspace_commodityyyyyy_ele_theme_owo_input_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_49_element_ui_lib_input__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_49_element_ui_lib_input___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_49_element_ui_lib_input__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__Users_neo_workspace_commodityyyyyy_ele_theme_owo_menu_item_group_css__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__Users_neo_workspace_commodityyyyyy_ele_theme_owo_menu_item_group_css__ = __webpack_require__(104);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__Users_neo_workspace_commodityyyyyy_ele_theme_owo_menu_item_group_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_50__Users_neo_workspace_commodityyyyyy_ele_theme_owo_menu_item_group_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_51_element_ui_lib_menu_item_group__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_51_element_ui_lib_menu_item_group__ = __webpack_require__(66);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_51_element_ui_lib_menu_item_group___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_51_element_ui_lib_menu_item_group__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__Users_neo_workspace_commodityyyyyy_ele_theme_owo_menu_item_css__ = __webpack_require__(101);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__Users_neo_workspace_commodityyyyyy_ele_theme_owo_menu_item_css__ = __webpack_require__(105);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__Users_neo_workspace_commodityyyyyy_ele_theme_owo_menu_item_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_52__Users_neo_workspace_commodityyyyyy_ele_theme_owo_menu_item_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_53_element_ui_lib_menu_item__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_53_element_ui_lib_menu_item__ = __webpack_require__(67);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_53_element_ui_lib_menu_item___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_53_element_ui_lib_menu_item__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__Users_neo_workspace_commodityyyyyy_ele_theme_owo_submenu_css__ = __webpack_require__(114);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__Users_neo_workspace_commodityyyyyy_ele_theme_owo_submenu_css__ = __webpack_require__(118);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__Users_neo_workspace_commodityyyyyy_ele_theme_owo_submenu_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_54__Users_neo_workspace_commodityyyyyy_ele_theme_owo_submenu_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_55_element_ui_lib_submenu__ = __webpack_require__(77);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_55_element_ui_lib_submenu__ = __webpack_require__(79);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_55_element_ui_lib_submenu___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_55_element_ui_lib_submenu__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__Users_neo_workspace_commodityyyyyy_ele_theme_owo_menu_css__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__Users_neo_workspace_commodityyyyyy_ele_theme_owo_menu_css__ = __webpack_require__(106);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__Users_neo_workspace_commodityyyyyy_ele_theme_owo_menu_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_56__Users_neo_workspace_commodityyyyyy_ele_theme_owo_menu_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_57_element_ui_lib_menu__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_57_element_ui_lib_menu__ = __webpack_require__(68);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_57_element_ui_lib_menu___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_57_element_ui_lib_menu__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_58__Users_neo_workspace_commodityyyyyy_ele_theme_owo_pagination_css__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_58__Users_neo_workspace_commodityyyyyy_ele_theme_owo_pagination_css__ = __webpack_require__(112);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_58__Users_neo_workspace_commodityyyyyy_ele_theme_owo_pagination_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_58__Users_neo_workspace_commodityyyyyy_ele_theme_owo_pagination_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_59__Users_neo_workspace_commodityyyyyy_ele_theme_owo_base_css__ = __webpack_require__(87);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_59__Users_neo_workspace_commodityyyyyy_ele_theme_owo_base_css__ = __webpack_require__(91);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_59__Users_neo_workspace_commodityyyyyy_ele_theme_owo_base_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_59__Users_neo_workspace_commodityyyyyy_ele_theme_owo_base_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_60_element_ui_lib_pagination__ = __webpack_require__(71);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_60_element_ui_lib_pagination__ = __webpack_require__(73);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_60_element_ui_lib_pagination___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_60_element_ui_lib_pagination__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_61_vue__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_62__ele_theme_owo_index_css__ = __webpack_require__(97);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_62__ele_theme_owo_index_css__ = __webpack_require__(101);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_62__ele_theme_owo_index_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_62__ele_theme_owo_index_css__);
 
 
@@ -5899,12 +6003,6 @@ __WEBPACK_IMPORTED_MODULE_61_vue__["default"].prototype.$notify = __WEBPACK_IMPO
 __WEBPACK_IMPORTED_MODULE_61_vue__["default"].prototype.$message = __WEBPACK_IMPORTED_MODULE_1_element_ui_lib_message___default.a;
 
 /***/ }),
-/* 28 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
 /* 29 */
 /***/ (function(module, exports) {
 
@@ -5912,6 +6010,154 @@ __WEBPACK_IMPORTED_MODULE_61_vue__["default"].prototype.$message = __WEBPACK_IMP
 
 /***/ }),
 /* 30 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 31 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export searchSupplier */
+/* unused harmony export getPagination */
+/* unused harmony export getSupplierInfo */
+/* unused harmony export approvalSave */
+/* harmony export (immutable) */ __webpack_exports__["a"] = findFourSelect;
+/* unused harmony export addCommodity */
+/* harmony export (immutable) */ __webpack_exports__["d"] = updateCommodity;
+/* unused harmony export getCommodity */
+/* harmony export (immutable) */ __webpack_exports__["c"] = uploadImage;
+/* harmony export (immutable) */ __webpack_exports__["f"] = searchCommodity;
+/* harmony export (immutable) */ __webpack_exports__["e"] = changeCommodityStatus;
+/* harmony export (immutable) */ __webpack_exports__["b"] = checkCommodityEan;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__request__ = __webpack_require__(89);
+
+
+var pageSize = 20; //分页显示，每页的数量
+
+/**
+ * 根据条件查询供应商列表
+ * @param {string} code
+ * @return {Promise}
+ */
+function searchSupplier(supplierName, supplierStatus, supplierApprovalStatus, supplierCreateBy, pageNum) {
+    return __WEBPACK_IMPORTED_MODULE_0__request__["a" /* default */].get('/supplier/list', { supplierName: supplierName, supplierStatus: supplierStatus, supplierApprovalStatus: supplierApprovalStatus, supplierCreateBy: supplierCreateBy, pageNum: pageNum, pageSize: pageSize });
+}
+
+/**
+ * 供应商分页查询
+ * @param {string} pageNum
+ * @returns {*|Promise}
+ */
+function getPagination(supplierName, supplierStatus, supplierApprovalStatus, supplierCreateBy, pageNum) {
+    return __WEBPACK_IMPORTED_MODULE_0__request__["a" /* default */].get('/supplier/list', { supplierName: supplierName, supplierStatus: supplierStatus, supplierApprovalStatus: supplierApprovalStatus, supplierCreateBy: supplierCreateBy, pageNum: pageNum, pageSize: pageSize });
+}
+
+/**
+ * 根据供应商id 查看供应商的详细信息
+ * @param {string} pageNum
+ * @returns {*|Promise}
+ */
+function getSupplierInfo(supplierId) {
+    return __WEBPACK_IMPORTED_MODULE_0__request__["a" /* default */].get('/supplier/one/' + supplierId);
+}
+
+/**
+ * 供应商审批时，选择 '通过' 还是 '驳回'
+ * @param supplierId
+ * @param approvalType
+ * @param approvalMessage
+ * @returns {*|Promise}
+ */
+function approvalSave(supplierId, approvalType, approvalMessage) {
+    return __WEBPACK_IMPORTED_MODULE_0__request__["a" /* default */].post('/supplier/approvalSave', { supplierId: supplierId, approvalType: approvalType, approvalMessage: approvalMessage });
+}
+
+/**
+ * div dep class subclass 四级联动
+ * @param type
+ * @param id
+ * @returns {*|Promise}
+ */
+function findFourSelect(itemType, id) {
+    return __WEBPACK_IMPORTED_MODULE_0__request__["a" /* default */].post('/item/queryItem', { itemType: itemType, id: id });
+}
+//------------------------------------------------------------------------------------------------------------------------
+
+/**
+ *
+ * @param {object} commodity
+ * @return {Promise}
+ */
+function addCommodity(commodity) {
+    return __WEBPACK_IMPORTED_MODULE_0__request__["a" /* default */].post('/commodity/add', commodity);
+}
+
+/**
+ *
+ * @param {object} commodity
+ * @return {Promise}
+ */
+function updateCommodity(commodity) {
+    return __WEBPACK_IMPORTED_MODULE_0__request__["a" /* default */].post('/commodity/save', commodity);
+}
+
+/**
+ *
+ * @param {string} id
+ * @return {Promise}
+ */
+function getCommodity(id) {
+    return __WEBPACK_IMPORTED_MODULE_0__request__["a" /* default */].get('/commodityManagement/commodity/' + id);
+}
+
+/**
+ *
+ * @param {File} file
+ */
+function uploadImage(file) {
+    var formData = new FormData();
+    formData.append('file', file);
+
+    return __WEBPACK_IMPORTED_MODULE_0__request__["a" /* default */].fetch('/supplier/uploadpic', {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'Accept': __WEBPACK_IMPORTED_MODULE_0__request__["b" /* MIME_TYPE */].JSON
+        }
+    });
+}
+
+/**
+ * 商品主档列表
+ * @param {string} code
+ * @return {Promise}
+ */
+function searchCommodity(code) {
+    return __WEBPACK_IMPORTED_MODULE_0__request__["a" /* default */].get('/commodity/list', code);
+}
+
+/**
+ * 更改商品状态
+ * @param {string} skuId
+ * @return {Promise}
+ */
+function changeCommodityStatus(skuId, status) {
+    return __WEBPACK_IMPORTED_MODULE_0__request__["a" /* default */].get('/commodity/change/' + skuId + '/' + status);
+}
+
+/**
+ * check 条码
+ * @param {string} commodityEan
+ * @return {Promise}
+ */
+function checkCommodityEan(commodityEan) {
+    return __WEBPACK_IMPORTED_MODULE_0__request__["a" /* default */].get('/commodity/checkean/' + commodityEan);
+}
+
+/***/ }),
+/* 32 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5962,15 +6208,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 31 */
+/* 33 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Nav_vue__ = __webpack_require__(124);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Nav_vue__ = __webpack_require__(128);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Nav_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_Nav_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Bread_vue__ = __webpack_require__(122);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Bread_vue__ = __webpack_require__(126);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Bread_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_Bread_vue__);
 //
 //
@@ -6002,7 +6248,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 32 */
+/* 34 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6081,7 +6327,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 33 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6111,11 +6357,11 @@ var _typeof = typeof Symbol === "function" && _typeof2(Symbol.iterator) === "sym
 
 var _util = __webpack_require__(0);
 
-var _validator = __webpack_require__(45);
+var _validator = __webpack_require__(47);
 
 var _validator2 = _interopRequireDefault(_validator);
 
-var _messages2 = __webpack_require__(34);
+var _messages2 = __webpack_require__(36);
 
 var _rule = __webpack_require__(2);
 
@@ -6375,7 +6621,7 @@ exports["default"] = Schema;
 module.exports = exports['default'];
 
 /***/ }),
-/* 34 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6443,7 +6689,7 @@ function newMessages() {
 var messages = exports.messages = newMessages();
 
 /***/ }),
-/* 35 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6493,7 +6739,7 @@ exports["default"] = enumerable;
 module.exports = exports['default'];
 
 /***/ }),
-/* 36 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6542,7 +6788,7 @@ exports["default"] = pattern;
 module.exports = exports['default'];
 
 /***/ }),
-/* 37 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6621,7 +6867,7 @@ exports["default"] = range;
 module.exports = exports['default'];
 
 /***/ }),
-/* 38 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6750,7 +6996,7 @@ exports["default"] = type;
 module.exports = exports['default'];
 
 /***/ }),
-/* 39 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6797,7 +7043,7 @@ exports["default"] = whitespace;
 module.exports = exports['default'];
 
 /***/ }),
-/* 40 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6847,7 +7093,7 @@ exports["default"] = array;
 module.exports = exports['default'];
 
 /***/ }),
-/* 41 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6896,7 +7142,7 @@ exports["default"] = boolean;
 module.exports = exports['default'];
 
 /***/ }),
-/* 42 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6940,7 +7186,7 @@ exports["default"] = date;
 module.exports = exports['default'];
 
 /***/ }),
-/* 43 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6991,7 +7237,7 @@ exports["default"] = enumerable;
 module.exports = exports['default'];
 
 /***/ }),
-/* 44 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7041,33 +7287,33 @@ exports["default"] = floatFn;
 module.exports = exports['default'];
 
 /***/ }),
-/* 45 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 module.exports = {
-  string: __webpack_require__(53),
-  method: __webpack_require__(47),
-  number: __webpack_require__(48),
-  "boolean": __webpack_require__(41),
-  regexp: __webpack_require__(51),
-  integer: __webpack_require__(46),
-  "float": __webpack_require__(44),
-  array: __webpack_require__(40),
-  object: __webpack_require__(49),
-  "enum": __webpack_require__(43),
-  pattern: __webpack_require__(50),
+  string: __webpack_require__(55),
+  method: __webpack_require__(49),
+  number: __webpack_require__(50),
+  "boolean": __webpack_require__(43),
+  regexp: __webpack_require__(53),
+  integer: __webpack_require__(48),
+  "float": __webpack_require__(46),
+  array: __webpack_require__(42),
+  object: __webpack_require__(51),
+  "enum": __webpack_require__(45),
+  pattern: __webpack_require__(52),
   email: __webpack_require__(14),
   url: __webpack_require__(14),
-  date: __webpack_require__(42),
+  date: __webpack_require__(44),
   hex: __webpack_require__(14),
-  required: __webpack_require__(52)
+  required: __webpack_require__(54)
 };
 
 /***/ }),
-/* 46 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7117,7 +7363,7 @@ exports["default"] = integer;
 module.exports = exports['default'];
 
 /***/ }),
-/* 47 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7166,7 +7412,7 @@ exports["default"] = method;
 module.exports = exports['default'];
 
 /***/ }),
-/* 48 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7216,7 +7462,7 @@ exports["default"] = number;
 module.exports = exports['default'];
 
 /***/ }),
-/* 49 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7265,7 +7511,7 @@ exports["default"] = object;
 module.exports = exports['default'];
 
 /***/ }),
-/* 50 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7317,7 +7563,7 @@ exports["default"] = pattern;
 module.exports = exports['default'];
 
 /***/ }),
-/* 51 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7366,7 +7612,7 @@ exports["default"] = regexp;
 module.exports = exports['default'];
 
 /***/ }),
-/* 52 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7403,7 +7649,7 @@ exports["default"] = required;
 module.exports = exports['default'];
 
 /***/ }),
-/* 53 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7457,7 +7703,7 @@ exports["default"] = string;
 module.exports = exports['default'];
 
 /***/ }),
-/* 54 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7551,7 +7797,7 @@ var index = deepmerge;
 module.exports = index;
 
 /***/ }),
-/* 55 */
+/* 57 */
 /***/ (function(module, exports) {
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -7773,7 +8019,7 @@ module.exports =
 	/******/ });
 
 /***/ }),
-/* 56 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -8235,7 +8481,7 @@ module.exports =
 	/******/ });
 
 /***/ }),
-/* 57 */
+/* 59 */
 /***/ (function(module, exports) {
 
 var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -8406,7 +8652,7 @@ module.exports =
 	/******/ });
 
 /***/ }),
-/* 58 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -8870,7 +9116,7 @@ module.exports =
 	/***/160:
 	/***/function _(module, exports) {
 
-		module.exports = __webpack_require__(33);
+		module.exports = __webpack_require__(35);
 
 		/***/
 	},
@@ -8911,7 +9157,7 @@ module.exports =
 	/******/ });
 
 /***/ }),
-/* 59 */
+/* 61 */
 /***/ (function(module, exports) {
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -9222,7 +9468,7 @@ module.exports =
 	/******/ });
 
 /***/ }),
-/* 60 */
+/* 62 */
 /***/ (function(module, exports) {
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -9441,7 +9687,7 @@ module.exports =
 	/******/ });
 
 /***/ }),
-/* 61 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -9962,7 +10208,7 @@ module.exports =
 	/******/ });
 
 /***/ }),
-/* 62 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10030,7 +10276,7 @@ var RE_NARGS = /(%|)\{([0-9a-zA-Z_]+)\}/g;
  */
 
 /***/ }),
-/* 63 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10143,7 +10389,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 64 */
+/* 66 */
 /***/ (function(module, exports) {
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -10400,7 +10646,7 @@ module.exports =
 	/******/ });
 
 /***/ }),
-/* 65 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -10776,7 +11022,7 @@ module.exports =
 	/******/ });
 
 /***/ }),
-/* 66 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -11238,7 +11484,7 @@ module.exports =
 	/******/ });
 
 /***/ }),
-/* 67 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -12133,7 +12379,7 @@ module.exports =
 	/******/ });
 
 /***/ }),
-/* 68 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -12624,7 +12870,7 @@ module.exports =
 	/******/ });
 
 /***/ }),
-/* 69 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -13106,7 +13352,7 @@ module.exports =
 	/******/ });
 
 /***/ }),
-/* 70 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -13394,7 +13640,7 @@ module.exports =
 	/******/ });
 
 /***/ }),
-/* 71 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -14177,7 +14423,7 @@ module.exports =
 	/******/ });
 
 /***/ }),
-/* 72 */
+/* 74 */
 /***/ (function(module, exports) {
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -14481,7 +14727,7 @@ module.exports =
 	/******/ });
 
 /***/ }),
-/* 73 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -14730,7 +14976,7 @@ module.exports =
 	/******/ });
 
 /***/ }),
-/* 74 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -15070,7 +15316,7 @@ module.exports =
 	/******/ });
 
 /***/ }),
-/* 75 */
+/* 77 */
 /***/ (function(module, exports) {
 
 module.exports =
@@ -15208,7 +15454,7 @@ module.exports =
 	/******/ });
 
 /***/ }),
-/* 76 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports =
@@ -15621,7 +15867,7 @@ module.exports =
 	/******/ });
 
 /***/ }),
-/* 77 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -15768,7 +16014,7 @@ module.exports =
 	/***/86:
 	/***/function _(module, exports) {
 
-		module.exports = __webpack_require__(82);
+		module.exports = __webpack_require__(84);
 
 		/***/
 	},
@@ -16101,7 +16347,7 @@ module.exports =
 	/******/ });
 
 /***/ }),
-/* 78 */
+/* 80 */
 /***/ (function(module, exports) {
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -16526,7 +16772,7 @@ module.exports =
 	/******/ });
 
 /***/ }),
-/* 79 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports =
@@ -17080,7 +17326,7 @@ module.exports =
 	/******/ });
 
 /***/ }),
-/* 80 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -17315,7 +17561,7 @@ module.exports =
 	/***/278:
 	/***/function _(module, exports) {
 
-		module.exports = __webpack_require__(81);
+		module.exports = __webpack_require__(83);
 
 		/***/
 	},
@@ -20207,7 +20453,7 @@ module.exports =
 	/******/ });
 
 /***/ }),
-/* 81 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports =
@@ -20494,7 +20740,7 @@ module.exports =
 	/******/ });
 
 /***/ }),
-/* 82 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20595,7 +20841,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 83 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21873,7 +22119,7 @@ var _typeof = typeof Symbol === "function" && _typeof2(Symbol.iterator) === "sym
 });
 
 /***/ }),
-/* 84 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22071,7 +22317,7 @@ if (!_vue2.default.prototype.$isServer) {
 exports.default = PopupManager;
 
 /***/ }),
-/* 85 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22109,570 +22355,7 @@ function scrollIntoView(container, selected) {
 }
 
 /***/ }),
-/* 86 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return COMMODITY_CODE; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return REGEXP; });
-var COMMODITY_CODE = {
-    commodityDept: {
-        1: 'PB',
-        2: 'NB',
-        3: '设备'
-    },
-    isFreshSell: { //是否现制现售
-        1: '是',
-        0: '否'
-    },
-    isMateriel: { //是否物料
-        1: '是',
-        0: '否'
-    },
-    isDailyDist: { //是否日配
-        1: '是',
-        0: '否'
-    },
-    isPolymer: { //是否聚合品
-        1: '是',
-        0: '否'
-    },
-    isImport: { //是否进口
-        1: '是',
-        0: '否'
-    },
-    isSpecialSell: { //是否专卖
-        1: '是',
-        0: '否'
-    },
-    termCondition: { //储存条件
-        1: '常温',
-        2: '冷藏',
-        3: '冷冻'
-    },
-    taxRate: { //进项税率
-        0: '0%',
-        11: '11%',
-        13: '13%',
-        17: '17%'
-    },
-    specType: { //规格类型
-        1: '杯型',
-        2: 'g重',
-        3: '口味',
-        4: '容量'
-    },
-    specUnit: { //规格类型
-        1: '袋',
-        2: '盒',
-        3: '听',
-        4: '罐',
-        5: '个',
-        6: '瓶',
-        7: '件',
-        8: '杯',
-        9: '碗'
-    },
-    commodityStatus: { //商品状态
-        40: '售卖中',
-        30: '冻结',
-        20: '紧急下架',
-        10: '下架'
-    },
-    divAndClass: {
-        div: {
-            10: '快速食品',
-            20: '米饭寿司'
-        },
-
-        10: {
-            100: '炸物',
-            101: '包子'
-        },
-        100: {
-            1000: '微波炸物',
-            1001: '其他炸物'
-        },
-        1000: {
-            10000: '鸡肉',
-            10001: '猪肉'
-        }
-    },
-    attributeVOList: {
-        attrType: {
-            1: '冰度',
-            2: '糖度'
-        },
-        1: {
-            10: '加冰',
-            11: '少冰',
-            12: '去冰'
-        },
-        2: {
-            20: '高',
-            21: '中',
-            22: '低'
-        }
-    }
-};
-var REGEXP = {
-    zhCn_en_num: /^[a-z0-9A-Z\u4e00-\u9fa5]+$/, //中英文数字
-    en_num: /^[a-z0-9A-Z]{1,13}$/, //数字字母长度1-13
-    en_num_code: /^[a-z0-9A-Z]{13}$|^[a-z0-9A-Z]{6}$/, //数字字母长度6/13位
-    num_code: /^[0-9]{13}$|^[0-9]{6}$/ //数字长度6/13位
-};
-/* unused harmony default export */ var _unused_webpack_default_export = ({
-    REGEXP: REGEXP,
-    COMMODITY_CODE: COMMODITY_CODE
-});
-
-/***/ }),
-/* 87 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
 /* 88 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 89 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 90 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 91 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 92 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 93 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 94 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 95 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 96 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 97 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 98 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 99 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 100 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 101 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 102 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 103 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 104 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 105 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 106 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 107 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 108 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 109 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 110 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 111 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 112 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 113 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 114 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 115 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 116 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 117 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 118 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 119 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 120 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 121 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 122 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(119)
-}
-var Component = __webpack_require__(7)(
-  /* script */
-  __webpack_require__(30),
-  /* template */
-  __webpack_require__(125),
-  /* styles */
-  injectStyle,
-  /* scopeId */
-  null,
-  /* moduleIdentifier (server only) */
-  null
-)
-Component.options.__file = "/Users/neo/workspace/commodityyyyyy/src/components/Bread.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] Bread.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-01f507cf", Component.options)
-  } else {
-    hotAPI.reload("data-v-01f507cf", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 123 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(120)
-}
-var Component = __webpack_require__(7)(
-  /* script */
-  __webpack_require__(31),
-  /* template */
-  __webpack_require__(126),
-  /* styles */
-  injectStyle,
-  /* scopeId */
-  null,
-  /* moduleIdentifier (server only) */
-  null
-)
-Component.options.__file = "/Users/neo/workspace/commodityyyyyy/src/components/Container.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] Container.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-14d0d758", Component.options)
-  } else {
-    hotAPI.reload("data-v-14d0d758", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 124 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(121)
-}
-var Component = __webpack_require__(7)(
-  /* script */
-  __webpack_require__(32),
-  /* template */
-  __webpack_require__(127),
-  /* styles */
-  injectStyle,
-  /* scopeId */
-  null,
-  /* moduleIdentifier (server only) */
-  null
-)
-Component.options.__file = "/Users/neo/workspace/commodityyyyyy/src/components/Nav.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] Nav.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-63b14e3a", Component.options)
-  } else {
-    hotAPI.reload("data-v-63b14e3a", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 125 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "bread"
-  }, [_c('header', [_c('p', {
-    staticClass: "bread-content",
-    domProps: {
-      "textContent": _vm._s(_vm.keyPath)
-    }
-  })])])
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-01f507cf", module.exports)
-  }
-}
-
-/***/ }),
-/* 126 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "box",
-    attrs: {
-      "id": "app"
-    }
-  }, [_c('nav-bar', {
-    staticClass: "box-nav",
-    attrs: {
-      "vm": _vm.vm
-    }
-  }), _vm._v(" "), _c('div', {
-    staticClass: "box-content"
-  }, [_c('bread', {
-    staticClass: "box-bread",
-    attrs: {
-      "vm": _vm.vm
-    }
-  }), _vm._v(" "), _vm._t("content")], 2)], 1)
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-14d0d758", module.exports)
-  }
-}
-
-/***/ }),
-/* 127 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('el-menu', {
-    staticClass: "nav",
-    attrs: {
-      "default-active": _vm.currentLink,
-      "unique-opened": _vm.uniqueOpen
-    },
-    on: {
-      "open": _vm.handleOpen,
-      "close": _vm.handleClose
-    }
-  }, [_c('div', {
-    staticClass: "title-button"
-  }, [_c('el-button', [_vm._v("供应链管理后台")])], 1), _vm._v(" "), _vm._l((_vm.menuList), function(nav, index) {
-    return _c('el-submenu', {
-      key: index,
-      attrs: {
-        "index": nav.title
-      }
-    }, [_c('template', {
-      slot: "title"
-    }, [_vm._v(_vm._s(nav.title))]), _vm._v(" "), _vm._l((nav.subItems), function(item) {
-      return [_c('el-menu-item', {
-        class: item.style,
-        attrs: {
-          "index": item.title
-        }
-      }, [_c('a', {
-        staticClass: "nav-link",
-        attrs: {
-          "href": item.url
-        }
-      }, [_vm._v(_vm._s(item.title))])])]
-    })], 2)
-  })], 2)
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-63b14e3a", module.exports)
-  }
-}
-
-/***/ }),
-/* 128 */,
-/* 129 */
 /***/ (function(module, exports) {
 
 (function (self) {
@@ -23134,154 +22817,12 @@ if (false) {
 })(typeof self !== 'undefined' ? self : this);
 
 /***/ }),
-/* 130 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* unused harmony export searchSupplier */
-/* unused harmony export getPagination */
-/* unused harmony export getSupplierInfo */
-/* unused harmony export approvalSave */
-/* unused harmony export findFourSelect */
-/* unused harmony export addCommodity */
-/* harmony export (immutable) */ __webpack_exports__["c"] = updateCommodity;
-/* unused harmony export getCommodity */
-/* harmony export (immutable) */ __webpack_exports__["b"] = uploadImage;
-/* harmony export (immutable) */ __webpack_exports__["e"] = searchCommodity;
-/* harmony export (immutable) */ __webpack_exports__["d"] = changeCommodityStatus;
-/* harmony export (immutable) */ __webpack_exports__["a"] = checkCommodityEan;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__request__ = __webpack_require__(131);
-
-
-var pageSize = 20; //分页显示，每页的数量
-
-/**
- * 根据条件查询供应商列表
- * @param {string} code
- * @return {Promise}
- */
-function searchSupplier(supplierName, supplierStatus, supplierApprovalStatus, supplierCreateBy, pageNum) {
-    return __WEBPACK_IMPORTED_MODULE_0__request__["a" /* default */].get('/supplier/list', { supplierName: supplierName, supplierStatus: supplierStatus, supplierApprovalStatus: supplierApprovalStatus, supplierCreateBy: supplierCreateBy, pageNum: pageNum, pageSize: pageSize });
-}
-
-/**
- * 供应商分页查询
- * @param {string} pageNum
- * @returns {*|Promise}
- */
-function getPagination(supplierName, supplierStatus, supplierApprovalStatus, supplierCreateBy, pageNum) {
-    return __WEBPACK_IMPORTED_MODULE_0__request__["a" /* default */].get('/supplier/list', { supplierName: supplierName, supplierStatus: supplierStatus, supplierApprovalStatus: supplierApprovalStatus, supplierCreateBy: supplierCreateBy, pageNum: pageNum, pageSize: pageSize });
-}
-
-/**
- * 根据供应商id 查看供应商的详细信息
- * @param {string} pageNum
- * @returns {*|Promise}
- */
-function getSupplierInfo(supplierId) {
-    return __WEBPACK_IMPORTED_MODULE_0__request__["a" /* default */].get('/supplier/one/' + supplierId);
-}
-
-/**
- * 供应商审批时，选择 '通过' 还是 '驳回'
- * @param supplierId
- * @param approvalType
- * @param approvalMessage
- * @returns {*|Promise}
- */
-function approvalSave(supplierId, approvalType, approvalMessage) {
-    return __WEBPACK_IMPORTED_MODULE_0__request__["a" /* default */].post('/supplier/approvalSave', { supplierId: supplierId, approvalType: approvalType, approvalMessage: approvalMessage });
-}
-
-/**
- * div dep class subclass 四级联动
- * @param type
- * @param id
- * @returns {*|Promise}
- */
-function findFourSelect(itemType, id) {
-    return __WEBPACK_IMPORTED_MODULE_0__request__["a" /* default */].post('/item/queryItem', { itemType: itemType, id: id });
-}
-//------------------------------------------------------------------------------------------------------------------------
-
-/**
- *
- * @param {object} commodity
- * @return {Promise}
- */
-function addCommodity(commodity) {
-    return __WEBPACK_IMPORTED_MODULE_0__request__["a" /* default */].post('/commodity/add', commodity);
-}
-
-/**
- *
- * @param {object} commodity
- * @return {Promise}
- */
-function updateCommodity(commodity) {
-    return __WEBPACK_IMPORTED_MODULE_0__request__["a" /* default */].post('/commodity/save', commodity);
-}
-
-/**
- *
- * @param {string} id
- * @return {Promise}
- */
-function getCommodity(id) {
-    return __WEBPACK_IMPORTED_MODULE_0__request__["a" /* default */].get('/commodityManagement/commodity/' + id);
-}
-
-/**
- *
- * @param {File} file
- */
-function uploadImage(file) {
-    var formData = new FormData();
-    formData.append('file', file);
-
-    return __WEBPACK_IMPORTED_MODULE_0__request__["a" /* default */].fetch('/supplier/uploadpic', {
-        method: 'POST',
-        body: formData,
-        headers: {
-            'Accept': __WEBPACK_IMPORTED_MODULE_0__request__["b" /* MIME_TYPE */].JSON
-        }
-    });
-}
-
-/**
- * 商品主档列表
- * @param {string} code
- * @return {Promise}
- */
-function searchCommodity(code) {
-    return __WEBPACK_IMPORTED_MODULE_0__request__["a" /* default */].get('/commodity/list', code);
-}
-
-/**
- * 更改商品状态
- * @param {string} skuId
- * @return {Promise}
- */
-function changeCommodityStatus(skuId, status) {
-    return __WEBPACK_IMPORTED_MODULE_0__request__["a" /* default */].get('/commodity/change/' + skuId + '/' + status);
-}
-
-/**
- * check 条码
- * @param {string} commodityEan
- * @return {Promise}
- */
-function checkCommodityEan(commodityEan) {
-    return __WEBPACK_IMPORTED_MODULE_0__request__["a" /* default */].get('/commodity/checkean/' + commodityEan);
-}
-
-/***/ }),
-/* 131 */
+/* 89 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return MIME_TYPE; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_whatwg_fetch__ = __webpack_require__(129);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_whatwg_fetch__ = __webpack_require__(88);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_whatwg_fetch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_whatwg_fetch__);
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
@@ -23404,19 +22945,554 @@ var HTTP = {
 /* harmony default export */ __webpack_exports__["a"] = (HTTP);
 
 /***/ }),
-/* 132 */
+/* 90 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export isArray */
+/* unused harmony export isObject */
+/* unused harmony export parseQuery */
+/* harmony export (immutable) */ __webpack_exports__["b"] = linkageLevelData;
+/* harmony export (immutable) */ __webpack_exports__["a"] = codeToLabel;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__lib_api__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__lib_constants__ = __webpack_require__(27);
+
+function isArray(obj) {
+    return Array.isArray(obj);
+}
+
+function isObject(obj) {
+    return Object.prototype.toString.call(obj) === '[object Object]';
+}
+
+function parseQuery(search) {
+    return search.slice(1).split('&').map(function (seg) {
+        return seg.split('=');
+    }).map(function (pair) {
+        return pair.map(decodeURIComponent);
+    }).reduce(function (map, pair) {
+        return map[pair[0]] = pair[1], map;
+    }, {});
+}
+
+
+
+function linkageLevelData(level, id) {
+    var levelModel = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : __WEBPACK_IMPORTED_MODULE_1__lib_constants__["a" /* COMMODITY_CODE */].divLevel;
+
+    if (id) {
+        return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__lib_api__["a" /* findFourSelect */])(level, id).then(function (r) {
+            if (r.status === 200) {
+                switch (level) {
+                    case 1:
+                        levelModel.div = r.returnList;
+                        levelModel.dep = [];
+                        levelModel.class = [];
+                        levelModel.subclass = [];
+                        break;
+                    case 2:
+                        levelModel.dep = r.returnList;
+                        levelModel.class = [];
+                        levelModel.subclass = [];
+                        break;
+                    case 3:
+                        levelModel.class = r.returnList;
+                        levelModel.subclass = [];
+                        break;
+                    case 4:
+                        levelModel.subclass = r.returnList;
+                        break;
+                    default:
+                        console.log('我做了什么？િ🙄ી');
+                }
+            } else {
+                levelModel.dep = [];
+                levelModel.class = [];
+                levelModel.subclass = [];
+                window.alert(r.msg || '获取分类信息失败');
+            }
+        }).catch(function (r) {
+            levelModel.dep = [];
+            levelModel.class = [];
+            levelModel.subclass = [];
+            window.alert(r.msg || '获取分类信息失败');
+        });
+    }
+}
+
+/**
+ * code to 文本
+ * @param listKey 状态列表key
+ * @param status 状态值
+ */
+function codeToLabel(listKey, status) {
+    var item = __WEBPACK_IMPORTED_MODULE_1__lib_constants__["a" /* COMMODITY_CODE */][listKey].filter(function (i) {
+        return i.value === status;
+    });
+    if (item[0]) {
+        return item[0].label;
+    }
+}
+
+/***/ }),
+/* 91 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 92 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 93 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 94 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 95 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 96 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 97 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 98 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 99 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 100 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 101 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 102 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 103 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 104 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 105 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 106 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 107 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 108 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 109 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 110 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 111 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 112 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 113 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 114 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 115 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 116 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 117 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 118 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 119 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 120 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 121 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 122 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 123 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 124 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 125 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(145)
+  __webpack_require__(123)
 }
 var Component = __webpack_require__(7)(
   /* script */
-  __webpack_require__(136),
+  __webpack_require__(32),
   /* template */
-  __webpack_require__(152),
+  __webpack_require__(129),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "/Users/neo/workspace/commodityyyyyy/src/components/Bread.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] Bread.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-01f507cf", Component.options)
+  } else {
+    hotAPI.reload("data-v-01f507cf", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 127 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(124)
+}
+var Component = __webpack_require__(7)(
+  /* script */
+  __webpack_require__(33),
+  /* template */
+  __webpack_require__(130),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "/Users/neo/workspace/commodityyyyyy/src/components/Container.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] Container.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-14d0d758", Component.options)
+  } else {
+    hotAPI.reload("data-v-14d0d758", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 128 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(125)
+}
+var Component = __webpack_require__(7)(
+  /* script */
+  __webpack_require__(34),
+  /* template */
+  __webpack_require__(131),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "/Users/neo/workspace/commodityyyyyy/src/components/Nav.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] Nav.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-63b14e3a", Component.options)
+  } else {
+    hotAPI.reload("data-v-63b14e3a", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 129 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "bread"
+  }, [_c('header', [_c('p', {
+    staticClass: "bread-content",
+    domProps: {
+      "textContent": _vm._s(_vm.keyPath)
+    }
+  })])])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-01f507cf", module.exports)
+  }
+}
+
+/***/ }),
+/* 130 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "box",
+    attrs: {
+      "id": "app"
+    }
+  }, [_c('nav-bar', {
+    staticClass: "box-nav",
+    attrs: {
+      "vm": _vm.vm
+    }
+  }), _vm._v(" "), _c('div', {
+    staticClass: "box-content"
+  }, [_c('bread', {
+    staticClass: "box-bread",
+    attrs: {
+      "vm": _vm.vm
+    }
+  }), _vm._v(" "), _vm._t("content")], 2)], 1)
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-14d0d758", module.exports)
+  }
+}
+
+/***/ }),
+/* 131 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('el-menu', {
+    staticClass: "nav",
+    attrs: {
+      "default-active": _vm.currentLink,
+      "unique-opened": _vm.uniqueOpen
+    },
+    on: {
+      "open": _vm.handleOpen,
+      "close": _vm.handleClose
+    }
+  }, [_c('div', {
+    staticClass: "title-button"
+  }, [_c('el-button', [_vm._v("供应链管理后台")])], 1), _vm._v(" "), _vm._l((_vm.menuList), function(nav, index) {
+    return _c('el-submenu', {
+      key: index,
+      attrs: {
+        "index": nav.title
+      }
+    }, [_c('template', {
+      slot: "title"
+    }, [_vm._v(_vm._s(nav.title))]), _vm._v(" "), _vm._l((nav.subItems), function(item) {
+      return [_c('el-menu-item', {
+        class: item.style,
+        attrs: {
+          "index": item.title
+        }
+      }, [_c('a', {
+        staticClass: "nav-link",
+        attrs: {
+          "href": item.url
+        }
+      }, [_vm._v(_vm._s(item.title))])])]
+    })], 2)
+  })], 2)
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-63b14e3a", module.exports)
+  }
+}
+
+/***/ }),
+/* 132 */,
+/* 133 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(146)
+}
+var Component = __webpack_require__(7)(
+  /* script */
+  __webpack_require__(137),
+  /* template */
+  __webpack_require__(153),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -23448,9 +23524,9 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 133 */,
 /* 134 */,
-/* 135 */
+/* 135 */,
+/* 136 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -23507,17 +23583,18 @@ var mimes = {
 });
 
 /***/ }),
-/* 136 */
+/* 137 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_FileUpload_vue__ = __webpack_require__(148);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_FileUpload_vue__ = __webpack_require__(149);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_FileUpload_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_FileUpload_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__lib_api__ = __webpack_require__(130);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lib_constants__ = __webpack_require__(86);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Container__ = __webpack_require__(123);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Container___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_Container__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__lib_api__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lib_utils__ = __webpack_require__(90);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__lib_constants__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_Container__ = __webpack_require__(127);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_Container___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_Container__);
 //
 //
 //
@@ -23832,6 +23909,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -23865,7 +23960,7 @@ var defaultCommodityData = {
     depName: '',
     className: '',
     subclassName: '',
-    pictureUrl: [],
+    pictureUrl: '',
 
     attributeVOList: [{ attrType: '', attrValue: [] }]
 };
@@ -23877,6 +23972,10 @@ var defaultCommodityData = {
 
         var commodityData = window.INIT_APP_DATA.commodityData || {};
         return {
+            PB: '1',
+            NB: '2',
+            一: '1',
+            二: '2',
             codeError: false,
             showInput: false,
             showImage: false,
@@ -23884,7 +23983,7 @@ var defaultCommodityData = {
             isUploading: false,
             isSubmitting: false,
             isEdit: commodityData.spuId ? !0 : false,
-            COMMODITY_CODE: __WEBPACK_IMPORTED_MODULE_2__lib_constants__["a" /* COMMODITY_CODE */],
+            COMMODITY_CODE: __WEBPACK_IMPORTED_MODULE_3__lib_constants__["a" /* COMMODITY_CODE */],
             commodity: commodityData.spuId ? commodityData : defaultCommodityData,
             commoditySkuVODataModel: function commoditySkuVODataModel() {
                 //添加规格数据模型 初始化value
@@ -23908,7 +24007,7 @@ var defaultCommodityData = {
                 commodityName: { validator: function validator(rule, value, cb) {
                         if (!value) {
                             cb(new Error('请选择商品名称'));
-                        } else if (__WEBPACK_IMPORTED_MODULE_2__lib_constants__["b" /* REGEXP */].zhCn_en_num.test(value)) {
+                        } else if (__WEBPACK_IMPORTED_MODULE_3__lib_constants__["b" /* REGEXP */].zhCn_en_num.test(value)) {
                             cb();
                         } else {
                             cb(new Error('非法字符'));
@@ -23917,7 +24016,7 @@ var defaultCommodityData = {
                 commodityShort: { validator: function validator(rule, value, cb) {
                         if (!value) {
                             cb(new Error('请选择商品简称'));
-                        } else if (__WEBPACK_IMPORTED_MODULE_2__lib_constants__["b" /* REGEXP */].zhCn_en_num.test(value)) {
+                        } else if (__WEBPACK_IMPORTED_MODULE_3__lib_constants__["b" /* REGEXP */].zhCn_en_num.test(value)) {
                             var byteLength = 0;
                             var _iteratorNormalCompletion = true;
                             var _didIteratorError = false;
@@ -23958,9 +24057,9 @@ var defaultCommodityData = {
                         }
                     } },
                 commodityEan: { validator: function validator(rule, value, cb) {
-                        if (!value.length && _this.commodity.commodityDept == 2) {
+                        if ((!value || !value.length) && _this.commodity.commodityDept === _this.NB) {
                             cb(new Error('请选择条码'));
-                        } else if (value.length) {
+                        } else if (value && value.length) {
                             var tag = 0;
                             for (var i = 0; i < value.length; i++) {
                                 for (var j = i + 1; j < value.length; j++) {
@@ -24003,7 +24102,13 @@ var defaultCommodityData = {
                         !value ? cb(new Error('请选择单位')) : cb();
                     } },
                 specVolume: { validator: function validator(rule, value, cb) {
-                        value[0] * value[1] * value[2] ? cb() : cb(new Error('请填写体积'));
+                        if (!__WEBPACK_IMPORTED_MODULE_3__lib_constants__["b" /* REGEXP */].int_code.test(value[0]) || !__WEBPACK_IMPORTED_MODULE_3__lib_constants__["b" /* REGEXP */].int_code.test(value[1]) || !__WEBPACK_IMPORTED_MODULE_3__lib_constants__["b" /* REGEXP */].int_code.test(value[2])) {
+                            cb(new Error('请填写体积'));
+                        } else if (value[0] * value[1] * value[2] === 0) {
+                            cb(new Error('请填写体积'));
+                        } else {
+                            cb();
+                        }
                     } },
                 divName: { required: true, message: '请选择div' },
                 depName: { required: true, message: '请选择dep' },
@@ -24011,10 +24116,10 @@ var defaultCommodityData = {
                 subclassName: { required: true, message: '请选择subclass' },
                 attributeVOList: { validator: function validator(rule, value, cb) {
                         var flag = 0;
-                        if (value[0].attrType) {
+                        if (value && value.length) {
                             for (var i = 0; i < value.length; i++) {
                                 for (var j = i + 1; j < value.length; j++) {
-                                    if (value[i].attrType === value[j].attrType) {
+                                    if (value[i] && value[i].attrType === value[j].attrType) {
                                         cb(new Error('属性类型重复'));
                                         flag = 1;
                                         break;
@@ -24025,14 +24130,22 @@ var defaultCommodityData = {
                                 } else {
                                     flag = 2;
                                 }
+
+                                if (value[i] && value[i].attrType) {
+                                    cb();
+                                } else if (_this.commodity.commodityDept === _this.PB) {
+                                    cb(new Error('产品部门为PB时属性必选'));
+                                    break;
+                                } else {
+                                    cb();
+                                }
                             }
                             if (flag === 2) cb();
+                        } else if (_this.commodity.commodityDept === _this.PB) {
+                            cb(new Error('产品部门为PB时属性必选'));
                         } else {
                             cb();
                         }
-                    } },
-                attrType: { validator: function validator(rule, value, cb) {
-                        !value ? cb(new Error('请选择属性类型')) : cb();
                     } },
                 attrValue: { validator: function validator(rule, value, cb) {
                         var _iteratorNormalCompletion2 = true;
@@ -24043,7 +24156,7 @@ var defaultCommodityData = {
                             for (var _iterator2 = value[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
                                 var i = _step2.value;
 
-                                if (i.attrType !== '' && i.attrType !== undefined) {
+                                if (i && i.attrType !== '' && i.attrType !== undefined) {
                                     if (!i.attrValue.length) {
                                         cb(new Error('请选择属性标签'));
                                         break;
@@ -24070,6 +24183,7 @@ var defaultCommodityData = {
                         }
                     } },
                 pictureUrl: { validator: function validator(rule, value, cb) {
+                        value ? cb() : cb(new Error('请选择图片'));
                         _this.isUploading ? cb(new Error('请等待图片上传完成')) : cb();
                     } }
             }
@@ -24078,22 +24192,85 @@ var defaultCommodityData = {
 
     components: {
         FileUpload: __WEBPACK_IMPORTED_MODULE_0__components_FileUpload_vue___default.a,
-        Container: __WEBPACK_IMPORTED_MODULE_3__components_Container___default.a
+        Container: __WEBPACK_IMPORTED_MODULE_4__components_Container___default.a
     },
     computed: {
         pageTitle: function pageTitle() {
             return this.isEdit ? '编辑商品' : '新增商品';
         }
     },
+    mounted: function mounted() {
+        var _this2 = this;
+
+        if (this.isEdit) {
+            this.linkageLevelData(1, 1).then(function () {
+                _this2.linkageLevelData(2, _this2.commodity.divName);
+            }).then(function () {
+                _this2.linkageLevelData(3, _this2.commodity.depName);
+            }).then(function () {
+                _this2.linkageLevelData(4, _this2.commodity.className);
+            });
+        } else {
+            this.linkageLevelData(1, 1);
+        }
+    },
+
     methods: {
+        linkageLevelData: __WEBPACK_IMPORTED_MODULE_2__lib_utils__["b" /* linkageLevelData */],
+        removeASkuItem: function removeASkuItem(list, index) {
+            list.splice(index, 1);
+            if (list.length === 0) {
+                list.unshift(this.unitDataModel()[0]);
+            }
+        },
         commodityDeptChange: function commodityDeptChange(commodity) {
             commodity.isMateriel = '';
             commodity.isDailyDist = '';
             commodity.isFreshSell = '';
             this.resetFreshValue('');
+            /**
+             * 属性:PB:1填     NB:2不填  EP:3非必填
+             * 条码:PB:!填     NB:填    EP:3非必填
+             */
+            if (commodity.commodityDept !== this.NB) {
+                if (!commodity.attributeVOList.length) {
+                    commodity.attributeVOList = [{ attrType: '', attrValue: [] }];
+                }
+                if (commodity.commodityDept === this.PB) {
+                    //clear ean code
+                    var _iteratorNormalCompletion3 = true;
+                    var _didIteratorError3 = false;
+                    var _iteratorError3 = undefined;
+
+                    try {
+                        for (var _iterator3 = commodity.commoditySkuVO[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+                            var i = _step3.value;
+
+                            i.skuMemberList[0].commodityEan = []; //only one item in skuMemberList when commodity department is PB.
+                            //this.$refs.mainForm.validateField(`commoditySkuVO[${i}][skuMemberList][${0}][commodityEan]`);
+                        }
+                    } catch (err) {
+                        _didIteratorError3 = true;
+                        _iteratorError3 = err;
+                    } finally {
+                        try {
+                            if (!_iteratorNormalCompletion3 && _iterator3.return) {
+                                _iterator3.return();
+                            }
+                        } finally {
+                            if (_didIteratorError3) {
+                                throw _iteratorError3;
+                            }
+                        }
+                    }
+                }
+                this.$refs.mainForm.validateField('commoditySkuVO[' + 0 + '][skuMemberList][' + 0 + '][commodityEan]');
+            } else {
+                commodity.attributeVOList = [];
+            }
         },
         resetFreshValue: function resetFreshValue(v) {
-            if (v != 1) {
+            if (v !== this.PB) {
                 //选中非现制现售，remove添加的规格选项.
                 var commoditySkuVO = this.commodity.commoditySkuVO;
                 commoditySkuVO.forEach(function (i) {
@@ -24113,7 +24290,7 @@ var defaultCommodityData = {
             var inputValue = this.inputValue;
             if (inputValue) {
                 //校验失败codeError===false
-                if (!__WEBPACK_IMPORTED_MODULE_2__lib_constants__["b" /* REGEXP */].num_code.test(inputValue)) {
+                if (!__WEBPACK_IMPORTED_MODULE_3__lib_constants__["b" /* REGEXP */].num_6_to_13.test(inputValue)) {
                     this.codeError = true;
                     return false;
                 } else {
@@ -24124,25 +24301,27 @@ var defaultCommodityData = {
             }
         },
         handleInputConfirm: function handleInputConfirm(ean, index1, index2) {
-            var _this2 = this;
+            var _this3 = this;
 
             var inputValue = this.inputValue;
             if (inputValue && !this.codeError) {
-                __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__lib_api__["a" /* checkCommodityEan */])(inputValue).then(function (data) {
-                    if (data.code === 200) {
+                __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__lib_api__["b" /* checkCommodityEan */])(inputValue).then(function (r) {
+                    if (r.status === 200) {
                         ean.push(inputValue);
-                        _this2.$refs.mainForm.validateField('commoditySkuVO[' + index1 + '][skuMemberList][' + index2 + '][commodityEan]');
+                        _this3.$refs.mainForm.validateField('commoditySkuVO[' + index1 + '][skuMemberList][' + index2 + '][commodityEan]');
                     } else {
-                        _this2.$alert(data.msg || '条码校验失败!', '提示', {
+                        _this3.$alert(r.msg || '条码校验失败!', '提示', {
                             confirmButtonText: '确定',
                             type: 'error'
                         });
                     }
                 }).catch(function (err) {
-                    _this2.$alert(err.msg || '条码校验失败!', '提示', {
-                        confirmButtonText: '确定',
-                        type: 'error'
-                    });
+                    if (err.msg) {
+                        _this3.$alert(err.msg || '条码校验失败!', '提示', {
+                            confirmButtonText: '确定',
+                            type: 'error'
+                        });
+                    }
                 });
                 this.$refs.mainForm.validateField('commoditySkuVO[' + index1 + '][skuMemberList][' + index2 + '][commodityEan]');
             }
@@ -24150,48 +24329,59 @@ var defaultCommodityData = {
             this.showInput = undefined;
         },
         submitForm: function submitForm() {
-            var _this3 = this;
+            var _this4 = this;
 
             this.$refs.mainForm.validate(function (valid) {
                 if (valid) {
-                    _this3.submit();
+                    _this4.submit();
                 }
             });
         },
         resetUpdate: function resetUpdate() {
             location.reload();
         },
+        deletePicture: function deletePicture() {
+            this.commodity.pictureUrl = '';
+            this.$refs.mainForm.validateField('pictureUrl');
+        },
         uploadWindowPic: function uploadWindowPic(file) {
-            var _this4 = this;
+            var _this5 = this;
 
             this.isUploading = true;
-            __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__lib_api__["b" /* uploadImage */])(file).then(function (data) {
-                if (data.code === 200) {
-                    _this4.commodity.pictureUrl.push(data.data);
+            __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__lib_api__["c" /* uploadImage */])(file).then(function (r) {
+                if (r.code === 200) {
+                    _this5.commodity.pictureUrl = r.data;
                 } else {
-                    _this4.$alert(data.msg || '图片上传失败!', '提示', {
+                    _this5.$alert(r.msg || '图片上传失败!', '提示', {
                         confirmButtonText: '确定',
                         type: 'error'
                     });
                 }
-                _this4.isUploading = false;
-                _this4.$refs.mainForm.validateField('pictureUrl');
+                _this5.isUploading = false;
+                _this5.$refs.mainForm.validateField('pictureUrl');
             }).catch(function (err) {
-                _this4.isUploading = false;
-                _this4.$alert(err.msg || '图片上传失败!', '提示', {
-                    confirmButtonText: '确定',
-                    type: 'error'
-                });
-                _this4.$refs.mainForm.validateField('pictureUrl');
+                _this5.isUploading = false;
+                if (err.msg) {
+                    _this5.$alert(err.msg || '图片上传失败!', '提示', {
+                        confirmButtonText: '确定',
+                        type: 'error'
+                    });
+                }
             });
         },
         submit: function submit() {
-            var _this5 = this;
+            var _this6 = this;
 
             this.isSubmitting = true;
-            __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__lib_api__["c" /* updateCommodity */])(this.commodity).then(function (r) {
-                if (r.code === 200) {
-                    _this5.$alert('保存成功！', '提示', {
+            if (this.commodity.attributeVOList && this.commodity.attributeVOList.length) {
+                //remove the empty value of attributeList when update a commodity data.
+                this.commodity.attributeVOList = this.commodity.attributeVOList.filter(function (i) {
+                    return i.attrType;
+                });
+            }
+            __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__lib_api__["d" /* updateCommodity */])(this.commodity).then(function (r) {
+                if (r.status === 200) {
+                    _this6.$alert('保存成功！', '提示', {
                         confirmButtonText: '确定',
                         type: 'success',
                         callback: function callback() {
@@ -24199,40 +24389,45 @@ var defaultCommodityData = {
                         }
                     });
                 } else {
-                    _this5.$alert(r.msg || '保存失败!', '提示', {
+                    _this6.$alert(r.msg || '保存失败!', '提示', {
                         confirmButtonText: '确定',
                         type: 'error'
                     });
                 }
-                _this5.isSubmitting = false;
+                _this6.isSubmitting = false;
             }).catch(function (err) {
-                _this5.$alert(err.msg || '保存失败!', '提示', {
-                    confirmButtonText: '确定',
-                    type: 'error'
-                });
-                _this5.isSubmitting = false;
+                if (err.msg) {
+                    _this6.$alert(err.msg || '保存失败!', '提示', {
+                        confirmButtonText: '确定',
+                        type: 'error'
+                    });
+                }
+                _this6.isSubmitting = false;
             });
+        },
+        commodityList: function commodityList() {
+            location.assign('/commodity/info/list');
         }
     }
 });
 
 /***/ }),
-/* 137 */,
 /* 138 */,
 /* 139 */,
-/* 140 */
+/* 140 */,
+/* 141 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__less_reset_less__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__less_reset_less__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__less_reset_less___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__less_reset_less__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__less_preset_less__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__less_preset_less__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__less_preset_less___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__less_preset_less__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modules_commodity_Edit_vue__ = __webpack_require__(132);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modules_commodity_Edit_vue__ = __webpack_require__(133);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modules_commodity_Edit_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__modules_commodity_Edit_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__lib_element_config_js__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__lib_element_config_js__ = __webpack_require__(28);
 
 
 
@@ -24248,36 +24443,36 @@ new __WEBPACK_IMPORTED_MODULE_0_vue__["default"]({
 });
 
 /***/ }),
-/* 141 */,
 /* 142 */,
 /* 143 */,
 /* 144 */,
-/* 145 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
+/* 145 */,
 /* 146 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 147 */,
-/* 148 */
+/* 147 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 148 */,
+/* 149 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(146)
+  __webpack_require__(147)
 }
 var Component = __webpack_require__(7)(
   /* script */
-  __webpack_require__(135),
+  __webpack_require__(136),
   /* template */
-  __webpack_require__(153),
+  __webpack_require__(154),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -24309,10 +24504,10 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 149 */,
 /* 150 */,
 /* 151 */,
-/* 152 */
+/* 152 */,
+/* 153 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -24332,9 +24527,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_c('el-row', [_c('el-col', {
     attrs: {
-      "span": 8
+      "span": 10
     }
   }, [_c('el-form-item', {
+    staticClass: "is-required",
     attrs: {
       "label": "商品名称",
       "prop": "commodityName",
@@ -24353,11 +24549,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   })], 1)], 1), _vm._v(" "), _c('el-col', {
     attrs: {
-      "span": 8
+      "span": 10
     }
   }, [_c('el-form-item', {
+    staticClass: "is-required",
     attrs: {
-      "label": "*商品简称",
+      "label": "商品简称",
       "prop": "commodityShort"
     }
   }, [_c('el-input', {
@@ -24372,7 +24569,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "title-line"
   }, [_c('span', [_vm._v("基本信息")])]), _vm._v(" "), _c('el-row', [_c('el-col', {
     attrs: {
-      "span": 5
+      "span": 10
     }
   }, [_c('el-form-item', {
     attrs: {
@@ -24380,6 +24577,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "prop": "commodityDept"
     }
   }, [_c('el-select', {
+    attrs: {
+      "disabled": _vm.isEdit
+    },
     on: {
       "change": function($event) {
         _vm.commodityDeptChange(_vm.commodity)
@@ -24399,9 +24599,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "label": name
       }
     })
-  }))], 1)], 1), _vm._v(" "), (_vm.commodity.commodityDept === '1') ? _c('el-col', {
+  }))], 1)], 1), _vm._v(" "), (_vm.commodity.commodityDept === _vm.PB) ? _c('el-col', {
     attrs: {
-      "span": 5
+      "span": 10
     }
   }, [_c('el-form-item', {
     attrs: {
@@ -24424,35 +24624,37 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, _vm._l((_vm.COMMODITY_CODE.isFreshSell), function(name, code) {
     return _c('el-radio', {
       attrs: {
+        "disabled": code === _vm.一 ? (_vm.commodity.isMateriel === _vm.一 ? !0 : !1) : !1,
         "label": code
       }
     }, [_vm._v(_vm._s(name))])
   }))], 1)], 1) : _vm._e(), _vm._v(" "), _c('el-col', {
     attrs: {
-      "span": 5
+      "span": 10
     }
   }, [_c('el-form-item', {
     attrs: {
-      "label": "物料",
-      "prop": "isMateriel"
+      "label": "专卖",
+      "prop": "isSpecialSell"
     }
-  }, [_c('el-radio-group', {
+  }, [_c('el-select', {
     model: {
-      value: (_vm.commodity.isMateriel),
+      value: (_vm.commodity.isSpecialSell),
       callback: function($$v) {
-        _vm.commodity.isMateriel = $$v
+        _vm.commodity.isSpecialSell = $$v
       },
-      expression: "commodity.isMateriel"
+      expression: "commodity.isSpecialSell"
     }
-  }, _vm._l((_vm.COMMODITY_CODE.isMateriel), function(name, code) {
-    return _c('el-radio', {
+  }, _vm._l((_vm.COMMODITY_CODE.isSpecialSell), function(name, code) {
+    return _c('el-option', {
       attrs: {
-        "label": code
+        "value": code,
+        "label": name
       }
-    }, [_vm._v(_vm._s(name))])
+    })
   }))], 1)], 1), _vm._v(" "), _c('el-col', {
     attrs: {
-      "span": 5
+      "span": 10
     }
   }, [_c('el-form-item', {
     attrs: {
@@ -24479,21 +24681,22 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_c('el-form-item', {
     attrs: {
-      "label": "专卖",
-      "prop": "isSpecialSell"
+      "label": "物料",
+      "prop": "isMateriel"
     }
   }, [_c('el-radio-group', {
     model: {
-      value: (_vm.commodity.isSpecialSell),
+      value: (_vm.commodity.isMateriel),
       callback: function($$v) {
-        _vm.commodity.isSpecialSell = $$v
+        _vm.commodity.isMateriel = $$v
       },
-      expression: "commodity.isSpecialSell"
+      expression: "commodity.isMateriel"
     }
-  }, _vm._l((_vm.COMMODITY_CODE.isSpecialSell), function(name, code) {
+  }, _vm._l((_vm.COMMODITY_CODE.isMateriel), function(name, code) {
     return _c('el-radio', {
       attrs: {
-        "label": code
+        "label": code,
+        "disabled": code === _vm.一 ? (_vm.commodity.isFreshSell === _vm.一 ? !0 : !1) : !1
       }
     }, [_vm._v(_vm._s(name))])
   }))], 1)], 1), _vm._v(" "), _c('el-col', {
@@ -24584,6 +24787,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "span": 20
       }
     }, [_c('el-form-item', {
+      staticClass: "is-required",
       attrs: {
         "label": "规格类型",
         "prop": 'commoditySkuVO[' + index + '].specType',
@@ -24600,62 +24804,32 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }, _vm._l((_vm.COMMODITY_CODE.specType), function(name, code) {
       return _c('el-option', {
         attrs: {
-          "value": code,
+          "value": name,
           "label": name
         }
       })
-    }))], 1)], 1), _vm._v(" "), _vm._l((item.skuMemberList), function(unit, index2) {
+    }))], 1)], 1), _vm._v(" "), (_vm.commodity.isFreshSell === _vm.一) ? _c('el-col', {
+      attrs: {
+        "span": 2
+      }
+    }, [_c('div', {
+      staticClass: "add-btn",
+      on: {
+        "click": function($event) {
+          item.skuMemberList.unshift(_vm.unitDataModel()[0])
+        }
+      }
+    }, [_c('i', {
+      staticClass: "el-icon-plus"
+    })])]) : _vm._e(), _vm._v(" "), _vm._l((item.skuMemberList), function(unit, index2) {
       return _c('div', {
         key: index2
-      }, [(_vm.isEdit) ? _c('el-col', {
+      }, [_c('el-col', {
         attrs: {
           "span": 10
         }
       }, [_c('el-form-item', {
-        attrs: {
-          "label": "商品编码"
-        }
-      }, [_c('el-input', {
-        attrs: {
-          "readonly": ""
-        },
-        model: {
-          value: (item.skuId),
-          callback: function($$v) {
-            item.skuId = $$v
-          },
-          expression: "item.skuId"
-        }
-      })], 1)], 1) : _vm._e(), _vm._v(" "), _c('el-col', {
-        attrs: {
-          "span": _vm.isEdit ? 10 : 20
-        }
-      }, [_c('el-form-item', {
-        attrs: {
-          "label": "商品状态",
-          "prop": 'commoditySkuVO[' + index + '][skuMemberList][' + index2 + '][commodityStatus]',
-          "rules": _vm.rules.commodityStatus
-        }
-      }, [_c('el-select', {
-        model: {
-          value: (unit.commodityStatus),
-          callback: function($$v) {
-            unit.commodityStatus = $$v
-          },
-          expression: "unit.commodityStatus"
-        }
-      }, _vm._l((_vm.COMMODITY_CODE.commodityStatus), function(name, code) {
-        return _c('el-option', {
-          attrs: {
-            "value": code,
-            "label": name
-          }
-        })
-      }))], 1)], 1), _vm._v(" "), _c('el-col', {
-        attrs: {
-          "span": 5
-        }
-      }, [_c('el-form-item', {
+        staticClass: "el-select is-required",
         attrs: {
           "label": "规格",
           "prop": 'commoditySkuVO[' + index + '][skuMemberList][' + index2 + '][specValue]',
@@ -24672,36 +24846,58 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
           },
           expression: "unit.specValue"
         }
-      })], 1)], 1), _vm._v(" "), _c('el-col', {
+      })], 1)], 1), _vm._v(" "), (unit.skuId) ? _c('el-col', {
         attrs: {
-          "span": 5
+          "span": 10
         }
       }, [_c('el-form-item', {
         attrs: {
-          "label": "单位",
-          "prop": 'commoditySkuVO[' + index + '][skuMemberList][' + index2 + '][specUnit]',
-          "rules": _vm.rules.specUnit
+          "label": "商品编码"
+        }
+      }, [_c('el-input', {
+        attrs: {
+          "readonly": ""
+        },
+        model: {
+          value: (unit.skuId),
+          callback: function($$v) {
+            unit.skuId = $$v
+          },
+          expression: "unit.skuId"
+        }
+      })], 1)], 1) : _vm._e(), _vm._v(" "), _c('el-col', {
+        attrs: {
+          "span": 10
+        }
+      }, [_c('el-form-item', {
+        staticClass: "is-required",
+        attrs: {
+          "label": "商品状态",
+          "prop": 'commoditySkuVO[' + index + '][skuMemberList][' + index2 + '][commodityStatus]',
+          "rules": _vm.rules.commodityStatus
         }
       }, [_c('el-select', {
         model: {
-          value: (unit.specUnit),
+          value: (unit.commodityStatus),
           callback: function($$v) {
-            unit.specUnit = $$v
+            unit.commodityStatus = $$v
           },
-          expression: "unit.specUnit"
+          expression: "unit.commodityStatus"
         }
-      }, _vm._l((_vm.COMMODITY_CODE.specUnit), function(name, code) {
+      }, _vm._l((_vm.COMMODITY_CODE.commodityStatus), function(item, index) {
         return _c('el-option', {
+          key: index,
           attrs: {
-            "value": code,
-            "label": name
+            "value": item.value,
+            "label": item.label
           }
         })
       }))], 1)], 1), _vm._v(" "), _c('el-col', {
         attrs: {
-          "span": 8
+          "span": 10
         }
       }, [_c('el-form-item', {
+        staticClass: "is-required",
         attrs: {
           "label": "体积",
           "prop": 'commoditySkuVO[' + index + '][skuMemberList][' + index2 + '][specVolume]',
@@ -24734,7 +24930,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
           "size": "small",
           "type": "number",
           "min": "0",
-          "placeholder": "长/cm"
+          "placeholder": "长/mm"
         },
         model: {
           value: (unit.specVolume[0]),
@@ -24751,7 +24947,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
           "size": "small",
           "type": "number",
           "min": "0",
-          "placeholder": "宽/cm"
+          "placeholder": "宽/mm"
         },
         model: {
           value: (unit.specVolume[1]),
@@ -24768,7 +24964,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
           "size": "small",
           "type": "number",
           "min": "0",
-          "placeholder": "高/cm"
+          "placeholder": "高/mm"
         },
         model: {
           value: (unit.specVolume[2]),
@@ -24777,33 +24973,53 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
           },
           expression: "unit.specVolume[2]"
         }
-      })], 1)])], 1), _vm._v(" "), (_vm.commodity.isFreshSell == 1) ? _c('el-col', {
+      })], 1)])], 1), _vm._v(" "), _c('el-col', {
+        attrs: {
+          "span": unit.skuId ? 20 : 10
+        }
+      }, [_c('el-form-item', {
+        staticClass: "is-required",
+        attrs: {
+          "label": "单位",
+          "prop": 'commoditySkuVO[' + index + '][skuMemberList][' + index2 + '][specUnit]',
+          "rules": _vm.rules.specUnit
+        }
+      }, [_c('el-select', {
+        model: {
+          value: (unit.specUnit),
+          callback: function($$v) {
+            unit.specUnit = $$v
+          },
+          expression: "unit.specUnit"
+        }
+      }, _vm._l((_vm.COMMODITY_CODE.specUnit), function(name, code) {
+        return _c('el-option', {
+          attrs: {
+            "value": name,
+            "label": name
+          }
+        })
+      }))], 1)], 1), _vm._v(" "), _c('el-col', {
         attrs: {
           "span": 2
         }
-      }, [(index2 + 1 === item.skuMemberList.length) ? _c('el-form-item', [_c('div', {
+      }, [_c('div', {
         staticClass: "add-btn",
         on: {
           "click": function($event) {
-            item.skuMemberList.unshift(_vm.unitDataModel()[0])
-          }
-        }
-      }, [_c('i', {
-        staticClass: "el-icon-plus"
-      })])]) : _c('el-form-item', [_c('div', {
-        staticClass: "add-btn",
-        on: {
-          "click": function($event) {
-            item.skuMemberList.splice(index2, 1)
+            _vm.removeASkuItem(item.skuMemberList, index2)
           }
         }
       }, [_c('i', {
         staticClass: "el-icon-minus"
-      })])])], 1) : _vm._e(), _vm._v(" "), _c('el-col', {
+      })])]), _vm._v(" "), _c('el-col', {
         attrs: {
           "span": 21
         }
       }, [_c('el-form-item', {
+        class: {
+          'is-required': _vm.commodity.commodityDept === _vm.NB
+        },
         attrs: {
           "label": "条码",
           "prop": ("commoditySkuVO[" + index + "][skuMemberList][" + index2 + "][commodityEan]"),
@@ -24813,15 +25029,15 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         return _c('span', {
           key: i,
           staticClass: "ean-code"
-        }, [_vm._v(_vm._s(tag) + "\n                                        "), _c('i', {
+        }, [_vm._v(_vm._s(tag) + "\n                                        "), (_vm.commodity.commodityDept !== _vm.PB) ? _c('i', {
           staticClass: "el-icon-close",
           on: {
             "click": function($event) {
               _vm.deleteEanCode(unit.commodityEan, i, index, index2);
             }
           }
-        })])
-      }), _vm._v(" "), _c('div', {
+        }) : _vm._e()])
+      }), _vm._v(" "), (_vm.commodity.commodityDept !== _vm.PB) ? _c('div', {
         staticClass: "add-btn-sm",
         on: {
           "click": function($event) {
@@ -24865,9 +25081,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
             _vm.inputValue = $event.target.value
           }
         }
-      }) : _vm._e(), _vm._v(" "), (_vm.showInput === index2 && _vm.codeError) ? _c('span', [_vm._v("条码为6或13位数字且不能有非法字符")]) : _vm._e(), _vm._v(" "), _c('i', {
+      }) : _vm._e(), _vm._v(" "), (_vm.showInput === index2 && _vm.codeError) ? _c('span', [_vm._v("条码为6-13位数字且不能有非法字符")]) : _vm._e(), _vm._v(" "), _c('i', {
         staticClass: "el-icon-plus"
-      })])], 2)], 1), _vm._v(" "), _c('el-col', {
+      })]) : _vm._e()], 2)], 1), _vm._v(" "), _c('el-col', {
         attrs: {
           "span": 24
         }
@@ -24887,6 +25103,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('el-select', {
     on: {
       "change": function($event) {
+        _vm.linkageLevelData(2, _vm.commodity.divName);
         _vm.commodity.depName = ''
       }
     },
@@ -24897,11 +25114,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       },
       expression: "commodity.divName"
     }
-  }, _vm._l((_vm.COMMODITY_CODE.divAndClass.div), function(name, code) {
+  }, _vm._l((_vm.COMMODITY_CODE.divLevel.div), function(item, index) {
     return _c('el-option', {
+      key: index,
       attrs: {
-        "value": code,
-        "label": name
+        "value": item.classId,
+        "label": item.className
       }
     })
   }))], 1)], 1), _vm._v(" "), _c('el-col', {
@@ -24916,6 +25134,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('el-select', {
     on: {
       "change": function($event) {
+        _vm.linkageLevelData(3, _vm.commodity.depName);
         _vm.commodity.className = ''
       }
     },
@@ -24926,11 +25145,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       },
       expression: "commodity.depName"
     }
-  }, _vm._l((_vm.COMMODITY_CODE.divAndClass[_vm.commodity.divName]), function(name, code) {
+  }, _vm._l((_vm.COMMODITY_CODE.divLevel.dep), function(item, index) {
     return _c('el-option', {
+      key: index,
       attrs: {
-        "value": code,
-        "label": name
+        "value": item.classId,
+        "label": item.className
       }
     })
   }))], 1)], 1), _vm._v(" "), _c('el-col', {
@@ -24945,6 +25165,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('el-select', {
     on: {
       "change": function($event) {
+        _vm.linkageLevelData(4, _vm.commodity.className);
         _vm.commodity.subclassName = ''
       }
     },
@@ -24955,11 +25176,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       },
       expression: "commodity.className"
     }
-  }, _vm._l((_vm.COMMODITY_CODE.divAndClass[_vm.commodity.depName]), function(name, code) {
+  }, _vm._l((_vm.COMMODITY_CODE.divLevel.class), function(item, index) {
     return _c('el-option', {
+      key: index,
       attrs: {
-        "value": code,
-        "label": name
+        "value": item.classId,
+        "label": item.className
       }
     })
   }))], 1)], 1), _vm._v(" "), _c('el-col', {
@@ -24979,21 +25201,25 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       },
       expression: "commodity.subclassName"
     }
-  }, _vm._l((_vm.COMMODITY_CODE.divAndClass[_vm.commodity.className]), function(name, code) {
+  }, _vm._l((_vm.COMMODITY_CODE.divLevel.subclass), function(item, index) {
     return _c('el-option', {
+      key: index,
       attrs: {
-        "value": code,
-        "label": name
+        "value": item.classId,
+        "label": item.className
       }
     })
   }))], 1)], 1)], 1), _vm._v(" "), _vm._l((_vm.commodity.attributeVOList), function(item, index) {
-    return _c('el-row', {
+    return (_vm.commodity.commodityDept !== _vm.NB) ? _c('el-row', {
       key: index
     }, [_c('el-col', {
       attrs: {
-        "span": 8
+        "span": 10
       }
     }, [_c('el-form-item', {
+      class: {
+        'is-required': _vm.commodity.commodityDept === _vm.PB
+      },
       attrs: {
         "label": "属性类型",
         "prop": 'attributeVOList',
@@ -25002,6 +25228,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }, [_c('el-select', {
       on: {
         "change": function($event) {
+          if ($event.target !== $event.currentTarget) { return null; }
           item.attrValue = []
         }
       },
@@ -25015,15 +25242,18 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }, _vm._l((_vm.COMMODITY_CODE.attributeVOList.attrType), function(name, code) {
       return _c('el-option', {
         attrs: {
-          "value": code,
+          "value": name,
           "label": name
         }
       })
     }))], 1)], 1), _vm._v(" "), _c('el-col', {
       attrs: {
-        "span": 8
+        "span": 10
       }
     }, [_c('el-form-item', {
+      class: {
+        'is-required': _vm.commodity.commodityDept === _vm.PB
+      },
       attrs: {
         "label": "属性标签",
         "prop": 'attributeVOList',
@@ -25043,19 +25273,19 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }, _vm._l((_vm.COMMODITY_CODE.attributeVOList[item.attrType]), function(name, code) {
       return _c('el-option', {
         attrs: {
-          "value": code,
+          "value": name,
           "label": name
         }
       })
     }))], 1)], 1), _vm._v(" "), _c('el-col', {
       attrs: {
-        "span": 8
+        "span": 2
       }
-    }, [(index + 1 === _vm.commodity.attributeVOList.length) ? _c('el-form-item', [_c('div', {
+    }, [(index + 1 === _vm.commodity.attributeVOList.length) ? _c('div', [_c('div', {
       staticClass: "add-btn",
       on: {
         "click": function($event) {
-          _vm.commodity.attributeVOList.unshift(new Object({
+          _vm.commodity.attributeVOList.push(new Object({
             attrType: '',
             attrValue: []
           }));
@@ -25063,7 +25293,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }, [_c('i', {
       staticClass: "el-icon-plus"
-    })])]) : _c('el-form-item', [_c('div', {
+    })]), _vm._v(" "), (1 !== _vm.commodity.attributeVOList.length) ? _c('div', {
       staticClass: "add-btn",
       on: {
         "click": function($event) {
@@ -25072,46 +25302,62 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }, [_c('i', {
       staticClass: "el-icon-minus"
-    })])])], 1)], 1)
-  }), _vm._v(" "), _c('el-row', [_vm._l((_vm.commodity.pictureUrl), function(item, index) {
-    return _c('el-col', {
-      attrs: {
-        "span": 5
+    })]) : _vm._e()]) : _c('div', {
+      staticClass: "add-btn",
+      on: {
+        "click": function($event) {
+          _vm.commodity.attributeVOList.splice(index, 1)
+        }
       }
-    }, [_c('el-form-item', {
-      attrs: {
-        "span": 5,
-        "label": index === 0 ? '商品图片' : ''
-      }
-    }, [_c('div', {
-      staticClass: "commodity-image"
     }, [_c('i', {
-      staticClass: "el-icon-delete",
-      on: {
-        "click": function($event) {
-          _vm.commodity.pictureUrl.splice(index, 1)
-        }
-      }
-    }), _vm._v(" "), _c('img', {
-      staticClass: "avatar-uploader-icon",
-      attrs: {
-        "src": (item + "?x-oss-process=image/resize,h_100")
-      },
-      on: {
-        "click": function($event) {
-          _vm.originalImage = item;
-          _vm.showImage = true
-        }
-      }
-    })])])], 1)
-  }), _vm._v(" "), (_vm.commodity.pictureUrl.length === 0 ? !0 : !1) ? _c('el-col', {
+      staticClass: "el-icon-minus"
+    })])])], 1) : _vm._e()
+  }), _vm._v(" "), _c('el-row', [_c('el-col', {
+    attrs: {
+      "span": 24
+    }
+  }, [_c('div', {
+    staticClass: "title-line"
+  }, [(_vm.commodity.pictureUrl) ? _c('span', [_vm._v("商品图片")]) : _vm._e()])]), _vm._v(" "), (_vm.commodity.pictureUrl) ? _c('el-col', {
     attrs: {
       "span": 5
     }
   }, [_c('el-form-item', {
     attrs: {
+      "span": 5,
       "prop": "pictureUrl",
-      "label": !_vm.commodity.pictureUrl.length ? '商品图片' : '',
+      "label": "商品图片",
+      "rules": _vm.rules.pictureUrl
+    }
+  }, [_c('div', {
+    staticClass: "commodity-image"
+  }, [_c('i', {
+    staticClass: "el-icon-delete",
+    on: {
+      "click": function($event) {
+        _vm.deletePicture()
+      }
+    }
+  }), _vm._v(" "), _c('img', {
+    staticClass: "avatar-uploader-icon",
+    attrs: {
+      "src": ((_vm.commodity.pictureUrl) + "?x-oss-process=image/resize,h_100")
+    },
+    on: {
+      "click": function($event) {
+        _vm.originalImage = _vm.commodity.pictureUrl;
+        _vm.showImage = true
+      }
+    }
+  })])])], 1) : _c('el-col', {
+    attrs: {
+      "span": 5
+    }
+  }, [_c('el-form-item', {
+    staticClass: "is-required",
+    attrs: {
+      "prop": "pictureUrl",
+      "label": "商品图片",
       "rules": _vm.rules.pictureUrl
     }
   }, [_c('file-upload', {
@@ -25129,7 +25375,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       },
       expression: "commodity.pictureUrl"
     }
-  })], 1)], 1) : _vm._e()], 2), _vm._v(" "), (_vm.showImage) ? _c('div', {
+  })], 1)], 1)], 1), _vm._v(" "), (_vm.showImage) ? _c('div', {
     staticClass: "big-image-container",
     on: {
       "click": function($event) {
@@ -25152,6 +25398,20 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "justify": "center"
     }
   }, [_c('el-col', {
+    attrs: {
+      "span": 3
+    }
+  }, [_c('el-button', {
+    staticClass: "submit-btn",
+    attrs: {
+      "type": "primary"
+    },
+    on: {
+      "click": function($event) {
+        _vm.commodityList()
+      }
+    }
+  }, [_vm._v("返回商品列表")])], 1), _vm._v(" "), _c('el-col', {
     attrs: {
       "span": 2
     }
@@ -25192,7 +25452,7 @@ if (false) {
 }
 
 /***/ }),
-/* 153 */
+/* 154 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -25226,5 +25486,5 @@ if (false) {
 }
 
 /***/ })
-],[140]);
+],[141]);
 //# sourceMappingURL=commodity-edit.js.map

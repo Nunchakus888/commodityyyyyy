@@ -37949,10 +37949,10 @@ main form .ean-code .el-icon-close[data-v-7fccbd1f] {
   right: -2px;
 }
 main form .add-btn[data-v-7fccbd1f] {
-  height: 36px;
-  line-height: 36px;
+  height: 32px;
+  line-height: 32px;
   font-size: 20px;
-  width: 36px;
+  width: 32px;
   white-space: nowrap;
   border: none;
   border-radius: 50%;
@@ -37960,12 +37960,13 @@ main form .add-btn[data-v-7fccbd1f] {
   text-align: center;
   color: white;
   display: inline-block;
+  cursor: pointer;
 }
 main form .add-btn-sm[data-v-7fccbd1f] {
-  height: 20px;
-  line-height: 20px;
+  height: 22px;
+  line-height: 22px;
   font-size: 12px;
-  width: 20px;
+  width: 22px;
   white-space: nowrap;
   border: none;
   border-radius: 50%;
@@ -37973,18 +37974,27 @@ main form .add-btn-sm[data-v-7fccbd1f] {
   text-align: center;
   color: white;
   display: inline-block;
+  cursor: pointer;
 }
 main form .add-btn-sm span[data-v-7fccbd1f] {
   color: red;
   font-size: 12px;
 }
+main form .base-input[data-v-7fccbd1f] {
+  padding-left: 5px;
+  display: inline-block;
+  width: 120px;
+  height: 25px;
+}
 main form .add-code-input[data-v-7fccbd1f] {
+  padding-left: 5px;
   display: inline-block;
   width: 120px;
   height: 25px;
   border: solid 1px rgba(18, 206, 102, 0.2);
 }
 main form .input-error[data-v-7fccbd1f] {
+  padding-left: 5px;
   display: inline-block;
   width: 120px;
   height: 25px;
@@ -38048,6 +38058,7 @@ main form .commodity-image img[data-v-7fccbd1f] {
   object-fit: cover;
 }
 main form .commodity-image:hover .el-icon-delete[data-v-7fccbd1f] {
+  z-index: 99;
   opacity: 1;
 }
 main form .el-icon-delete[data-v-7fccbd1f] {
@@ -38058,6 +38069,10 @@ main form .el-icon-delete[data-v-7fccbd1f] {
   opacity: 0;
   color: #e64242;
   cursor: pointer;
+}
+main form .native-select[data-v-7fccbd1f] {
+  width: 195px;
+  height: 37px;
 }
 main .big-image-container .image-overlayer[data-v-7fccbd1f] {
   top: 0;
