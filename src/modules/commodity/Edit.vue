@@ -331,7 +331,7 @@
 </template>
 <script>
     import FileUpload from '../../components/FileUpload.vue';
-    import { updateCommodity, checkCommodityEan, uploadImage } from '../../lib/api';
+    import { updateCommodity, uploadImage } from '../../lib/api';
     import { linkageLevelData } from '../../lib/utils';
     import { COMMODITY_CODE, REGEXP } from '../../lib/constants';
     import Container from '@components/Container';
@@ -642,7 +642,7 @@
             handleInputConfirm(ean, index1, index2) {
                 const inputValue = this.inputValue;
                 if (inputValue && !this.codeError) {
-                    checkCommodityEan(inputValue).then(r => {
+                    /*checkCommodityEan(inputValue).then(r => {
                         if (r.status === 200) {
                             ean.push(inputValue);
                             this.$refs.mainForm.validateField(`commoditySkuVO[${index1}][skuMemberList][${index2}][commodityEan]`);
@@ -659,7 +659,8 @@
                                 type: 'error'
                             });
                         }
-                    });
+                    });*/
+                    ean.push(inputValue);
                     this.$refs.mainForm.validateField(`commoditySkuVO[${index1}][skuMemberList][${index2}][commodityEan]`);
                 }
                 this.inputValue = '';
