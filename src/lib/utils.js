@@ -47,14 +47,14 @@ export function linkageLevelData(level, id, levelModel = COMMODITY_CODE.divLevel
                     levelModel.dep = [];
                     levelModel.class = [];
                     levelModel.subclass = [];
-                    window.alert(r.msg || '获取分类信息失败');
+                    //window.alert(r.msg || '获取分类信息失败');
                 }
             })
             .catch(r => {
                 levelModel.dep = [];
                 levelModel.class = [];
                 levelModel.subclass = [];
-                window.alert(r.msg || '获取分类信息失败');
+                //window.alert(r.msg || '获取分类信息失败');
             });
     }
 }
