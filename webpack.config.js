@@ -7,9 +7,7 @@ const htmlPluginList = require('./build/genhtml')();
 const packageJson = require('./package.json');
 const OSS_DIR = `/app/${packageJson.name}/`
 
-const STATIC_PATH = (process.env.DIST_ENV !== 'product'
-        ? 'http://static.qa.xingbianli.cn'
-        : 'https://s.xingbianli.cn') + OSS_DIR;
+const STATIC_PATH = '';
 
 module.exports = {
     entry: {
