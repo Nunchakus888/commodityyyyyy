@@ -50,7 +50,7 @@ export function linkageLevelData(level, id, levelModel = COMMODITY_CODE.divLevel
                     //window.alert(r.msg || '获取分类信息失败');
                 }
             })
-            .catch(r => {
+            .catch(() => {
                 levelModel.dep = [];
                 levelModel.class = [];
                 levelModel.subclass = [];

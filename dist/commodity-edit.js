@@ -23009,13 +23009,13 @@ function linkageLevelData(level, id) {
                 levelModel.dep = [];
                 levelModel.class = [];
                 levelModel.subclass = [];
-                window.alert(r.msg || '获取分类信息失败');
+                //window.alert(r.msg || '获取分类信息失败');
             }
-        }).catch(function (r) {
+        }).catch(function () {
             levelModel.dep = [];
             levelModel.class = [];
             levelModel.subclass = [];
-            window.alert(r.msg || '获取分类信息失败');
+            //window.alert(r.msg || '获取分类信息失败');
         });
     }
 }
